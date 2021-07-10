@@ -110,10 +110,18 @@
           </li>
 
           <li class="nav-item">
-            <a href="{{ asset('admin/keuangan') }}" class="nav-link">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-hand-holding-usd"></i>
-              <p>Keuangan</p>
+              <p>Keuangan<i class="fas fa-angle-left right"></i></p>
             </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item"><a href="{{ asset('admin/pemasukan') }}" class="nav-link"><i class="fas fa-donate nav-icon"></i><p>Pemasukan Kas</p></a>
+              </li>
+              <li class="nav-item"><a href="{{ asset('admin/pengeluaran') }}" class="nav-link"><i class="fas fa-cash-register nav-icon"></i><p>Pengeluaran Kas</p></a>
+              </li>
+              <li class="nav-item"><a href="{{ asset('admin/keuangan') }}" class="nav-link"><i class="fas fa-wallet nav-icon"></i><p>Informasi Saldo</p></a>
+              </li>
+            </ul>
           </li>
 
           <!-- Website Content -->
