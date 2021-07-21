@@ -1,6 +1,10 @@
+<?php
+use Illuminate\Support\Facades\DB;
+use App\Models\Keuangan_model;
+?>
+
 <div class="alert alert-info">
   <p>Hai <strong>{{ Session()->get('nama') }}</strong>, Selamat datang di Halaman Dashboard Administrator</p>
-  <p>Bagi teman-teman yang sudah mengunduh website ini, mohon follow dan like akun Instagram kami di <a href="https://www.instagram.com/javawebmedia/" class="btn btn-warning">https://www.instagram.com/javawebmedia/</a></p>
 </div>
 <hr>
 <!-- Info boxes -->
@@ -167,6 +171,29 @@
           echo $agenda->count();
           ?>
           <small>Acara</small>
+        </span>
+      </div>
+      <!-- /.info-box-content -->
+    </div>
+    <!-- /.info-box -->
+  </div>
+  <!-- /.col -->
+</div>
+<!-- /.row -->
+
+<!-- Info boxes -->
+<div class="row">
+  <div class="col-12 col-sm-6 col-md-3">
+    <div class="info-box">
+      <span class="info-box-icon bg-info elevation-1"><i class="fas fa-wallet"></i></span>
+
+      <div class="info-box-content">
+        <span class="info-box-text">Saldo Akhir</span>
+        <span class="info-box-number">
+          <?php 
+          $pemasukan = Keuangan_model::where('type', 'in')->orderBy('tanggal', 'desc')->first();
+          echo $pemasukan->saldo;
+          ?>
         </span>
       </div>
       <!-- /.info-box-content -->

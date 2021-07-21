@@ -23,6 +23,25 @@ class Keuangan_model extends Model
         return $hasil_rupiah;
     }
 
+    public function getSaldoAttribute()
+    {
+        $keuangan = Keuangan_model::get();
+        //mencari total
+        $total_pemasukan = 0;
+        $total_pengeluaran = 0;
+        foreach($keuangan as $uang)
+        {
+            if ($uang->type == 'in'){
+                $total_pemasukan += $uang->amount;
+            } else {
+                $total_pengeluaran += $uang->amount;
+            }
+        } 
+        $saldo_akhir = $total_pemasukan - $total_pengeluaran;
+        $hasil_rupiah = "Rp " . number_format($saldo_akhir,2,',','.');
+        return $hasil_rupiah;
+    }
+
     public static function getNota($type, $kategori)
     {
         $kode_kategori = DB::table('kategori_kas')->find($kategori)->kode;
