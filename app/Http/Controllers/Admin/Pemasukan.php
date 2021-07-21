@@ -3,7 +3,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Models\Pemasukan_model;
+use App\Models\Keuangan_model;
 
 class Pemasukan extends Controller
 {
@@ -11,10 +11,12 @@ class Pemasukan extends Controller
     public function index()
     {
         if(Session()->get('username')=="") { return redirect('login')->with(['warning' => 'Mohon maaf, Anda belum login']);}
-        $pemasukan = Pemasukan_model::get();
+        $pemasukan = Keuangan_model::where('type', 'in')->orderBy('tanggal', 'desc')->get();
+        $kategori_kas    = DB::table('kategori_kas')->orderBy('nama','ASC')->get();
         
         $data = array(  'title'     => 'Daftar Pemasukan',
                         'pemasukan'  => $pemasukan,
+                        'kategori_kas'   => $kategori_kas,
                         'content'   => 'admin/pemasukan/index'
                     );
         return view('admin/layout/wrapper',$data);
@@ -24,7 +26,7 @@ class Pemasukan extends Controller
     public function edit($id)
     {
         if(Session()->get('username')=="") { return redirect('login')->with(['warning' => 'Mohon maaf, Anda belum login']);}
-        $pemasukan   = DB::table('pemasukan')->where('id',$id)->first();
+        $pemasukan   = DB::table('keuangan')->where('id',$id)->first();
 
         $data = array(  'title'     => 'Edit Data Pemasukan',
                         'pemasukan' => $pemasukan,
@@ -39,18 +41,18 @@ class Pemasukan extends Controller
         if(Session()->get('username')=="") { return redirect('login')->with(['warning' => 'Mohon maaf, Anda belum login']);}
         
         request()->validate([
-                            'kode'       => 'required|unique:pemasukan',
                             'keterangan' => 'required',
                             'tanggal'    => 'required',
                             'amount'     => 'required'
                             ]);
-        
         // UPLOAD START       
-        DB::table('pemasukan')->insert([
-            'kode'       => $request->kode,
+        DB::table('keuangan')->insert([
+            'kode'       => Keuangan_model::getNota('in', $request->id_kategori_kas),
+            'type'       => 'in',  
             'keterangan' => $request->keterangan,
             'tanggal'    => $request->tanggal,
             'amount'     => $request->amount,
+            'kategori_id'=> $request->id_kategori_kas,   
             'user_id'    => Session()->get('id_user'),
         ]);
 
@@ -63,15 +65,13 @@ class Pemasukan extends Controller
         if(Session()->get('username')=="") { return redirect('login')->with(['warning' => 'Mohon maaf, Anda belum login']);}
         
         request()->validate([
-            'kode'       => 'required',
             'keterangan' => 'required',
             'tanggal'    => 'required',
             'amount'     => 'required'
             ]);
         
             // UPLOAD START
-        DB::table('pemasukan')->where('id',$request->id)->update([
-            'kode'       => $request->kode,
+        DB::table('keuangan')->where('id',$request->id)->update([
             'keterangan' => $request->keterangan,
             'tanggal'    => $request->tanggal,
             'amount'     => $request->amount,
@@ -84,7 +84,7 @@ class Pemasukan extends Controller
     public function delete($id)
     {
         if(Session()->get('username')=="") { return redirect('login')->with(['warning' => 'Mohon maaf, Anda belum login']);}
-        DB::table('pemasukan')->where('id',$id)->delete();
+        DB::table('keuangan')->where('id',$id)->delete();
         return redirect('admin/pemasukan')->with(['sukses' => 'Data telah dihapus']);
     }
 }

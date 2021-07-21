@@ -171,7 +171,7 @@ Route::get('admin/video/delete/{par1}', 'App\Http\Controllers\Admin\Video@delete
 Route::post('admin/video/proses', 'App\Http\Controllers\Admin\Video@proses');
 // keuangan
 Route::get('admin/keuangan', 'App\Http\Controllers\Admin\Keuangan@index');
-Route::get('admin/keuangan/edit/{par1}', 'App\Http\Controllers\Admin\Keuangan@edit');
+Route::get('admin/keuangan/cari', 'App\Http\Controllers\Admin\Keuangan@cari');
 Route::post('admin/keuangan/tambah', 'App\Http\Controllers\Admin\Keuangan@tambah');
 Route::post('admin/keuangan/proses_edit', 'App\Http\Controllers\Admin\Keuangan@proses_edit');
 Route::get('admin/keuangan/delete/{par1}', 'App\Http\Controllers\Admin\Keuangan@delete');
@@ -218,6 +218,11 @@ Route::get('admin/kategori_akreditasi', 'App\Http\Controllers\Admin\Kategori_akr
 Route::post('admin/kategori_akreditasi/tambah', 'App\Http\Controllers\Admin\Kategori_akreditasi@tambah');
 Route::post('admin/kategori_akreditasi/edit', 'App\Http\Controllers\Admin\Kategori_akreditasi@edit');
 Route::get('admin/kategori_akreditasi/delete/{par1}', 'App\Http\Controllers\Admin\Kategori_akreditasi@delete');
+// kategori_kas
+Route::get('admin/kategori_kas', 'App\Http\Controllers\Admin\Kategori_kas@index');
+Route::post('admin/kategori_kas/tambah', 'App\Http\Controllers\Admin\Kategori_kas@tambah');
+Route::post('admin/kategori_kas/edit', 'App\Http\Controllers\Admin\Kategori_kas@edit');
+Route::get('admin/kategori_kas/delete/{par1}', 'App\Http\Controllers\Admin\Kategori_kas@delete');
 // galeri
 Route::get('admin/galeri', 'App\Http\Controllers\Admin\Galeri@index');
 Route::get('admin/galeri/cari', 'App\Http\Controllers\Admin\Galeri@cari');

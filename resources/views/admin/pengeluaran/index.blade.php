@@ -30,9 +30,9 @@
             <th width="5%">No</th>
             <th width="15%">No Kwitansi</th>
             <th width="30%">Keterangan</th>
-            <th width="10%">Tanggal</th>
+            <th width="12%">Tanggal</th>
             <th width="15%">Jumlah</th>
-            <th width="15%">Oleh</th>
+            <th width="13%">Dientry Oleh</th>
             <th>Action</th>
         </tr>
     </thead>
@@ -43,8 +43,8 @@
             <td><?php echo $i ?></td>
             <td><?php echo $p->kode ?></td>
             <td><?php echo $p->keterangan ?></td>
-            <td><small><?php echo $p->tanggal ?></small></td>
-            <td class="text-right"><?php echo $p->amount ?></td>
+            <td class="text-center"><?php echo $p->tanggal ?></td>
+            <td class="text-right"><?php echo $p->rupiah ?></td>
             <td><?php echo $p->user->nama ?></td>
             <td>
                 <div class="btn-group">

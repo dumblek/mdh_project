@@ -121,6 +121,8 @@
               </li>
               <li class="nav-item"><a href="{{ asset('admin/keuangan') }}" class="nav-link"><i class="fas fa-wallet nav-icon"></i><p>Informasi Saldo</p></a>
               </li>
+              <li class="nav-item"><a href="{{ asset('admin/kategori_kas') }}" class="nav-link"><i class="fa fa-tags nav-icon"></i><p>Kategori Kas</p></a>
+              </li>
             </ul>
           </li>
 

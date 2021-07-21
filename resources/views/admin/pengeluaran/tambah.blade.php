@@ -10,13 +10,24 @@
 			<div class="modal-body">
 				<form action="{{ asset('admin/pengeluaran/tambah') }}" enctype="multipart/form-data" method="post" accept-charset="utf-8">
 {{ csrf_field() }}
-				<div class="form-group row">
+				<!-- <div class="form-group row">
 					<label class="col-sm-3 control-label text-right">No Kwitansi</label>
 					<div class="col-sm-9">
 						<input type="text" name="kode" class="form-control" placeholder="No Kwitansi" value="{{ old('kode') }}" required>
 					</div>
+				</div> -->
+				<div class="row form-group">
+					<label class="col-md-3 text-right">Kategori Kas</label>
+					<div class="col-md-9">
+						<select name="id_kategori_kas" class="form-control">
+
+							<?php foreach($kategori_kas as $kategori_kas) { ?>
+							<option value="<?php echo $kategori_kas->id ?>"><?php echo $kategori_kas->nama ?></option>
+							<?php } ?>
+
+						</select>
+					</div>
 				</div>
-				
 
 				<div class="form-group row">
 					<label class="col-sm-3 control-label text-right">Keterangan</label>
