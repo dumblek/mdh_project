@@ -27,7 +27,8 @@ Route::get('pembayaran', 'App\Http\Controllers\Home@pembayaran');
 Route::post('proses_pemesanan', 'App\Http\Controllers\Home@proses_pemesanan');
 Route::get('berhasil/{par1}', 'App\Http\Controllers\Home@berhasil');
 Route::get('cetak/{par1}', 'App\Http\Controllers\Home@cetak');
-Route::get('javawebmedia', 'App\Http\Controllers\Home@javawebmedia');
+Route::get('profil', 'App\Http\Controllers\Home@profil');
+Route::get('saldo', 'App\Http\Controllers\Home@saldo');
 Route::get('aksi', 'App\Http\Controllers\Aksi@index');
 Route::get('aksi/status/{par1}', 'App\Http\Controllers\Aksi@status');
 // Login

@@ -18,7 +18,13 @@ $nav_materi  = $myprofil->nav_materi();
          <div class="logo"><a href="{{ asset('/') }}"><img src="{{ asset('assets/upload/image/'.$site_config->logo) }}" alt="{{ $site_config->namaweb }}" style="max-height: 80px; width: auto;"></a></div>
             <ul class="navbar-nav mr-auto">
                <li class="nav-item"><a class="nav-link" href="{{ asset('/') }}">Beranda</a> </li>
-               <li class="nav-item"><a class="nav-link" href="{{ asset('javawebmedia') }}">Tentang</a> </li>
+               <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Tentang <span class="pull-right"><i class="fas fa-caret-down"></i></span></a>
+                  <ul class="dropdown-menu" >            
+                     <li><a href="{{ asset('profil') }}"><i class="fa fa-angle-double-right" aria-hidden="true"></i>Profil</a></li>
+                     <li><a href="{{ asset('saldo') }}"><i class="fa fa-angle-double-right" aria-hidden="true"></i>Informasi Saldo</a></li>
+                  </ul>
+               </li>
                <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Berita &amp; Updates <span class="pull-right"><i class="fas fa-caret-down"></i></span></a>
                   <ul class="dropdown-menu">
@@ -28,25 +34,20 @@ $nav_materi  = $myprofil->nav_materi();
                   </ul>
                </li>
                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Layanan <span class="pull-right"><i class="fas fa-caret-down"></i></span></a>
+                  <a class="nav-link dropdown-toggle" href="#"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Program <span class="pull-right"><i class="fas fa-caret-down"></i></span></a>
                   <ul class="dropdown-menu" >
                      <?php foreach($nav_layanan as $nav_layanan) { ?>
                      <li><a href="{{ asset('berita/layanan/'.$nav_layanan->slug_berita) }}"><i class="fa fa-angle-double-right" aria-hidden="true"></i> {{ Str::words($nav_layanan->judul_berita,6) }}</a></li>
                      <?php } ?>
                   </ul>
                </li>
-               
                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Download <span class="pull-right"><i class="fas fa-caret-down"></i></span></a>
+                  <a class="nav-link dropdown-toggle" href="#"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Galeri <span class="pull-right"><i class="fas fa-caret-down"></i></span></a>
                   <ul class="dropdown-menu" >            
-                     <?php foreach($nav_materi as $nav_materi) { ?>
-                     <li><a href="{{ asset('download/kategori/'.$nav_materi->slug_kategori_download) }}"><i class="fa fa-angle-double-right" aria-hidden="true"></i> {{ Str::words($nav_materi->nama_kategori_download,6) }}</a></li>
-                     <?php } ?>
-                     <li><a href="{{ asset('download') }}"><i class="fa fa-angle-double-right" aria-hidden="true"></i> Lihat Semua Data</a></li>
+                     <li><a href="{{ asset('galeri') }}"><i class="fa fa-angle-double-right" aria-hidden="true"></i>Foto</a></li>
+                     <li><a href="{{ asset('video') }}"><i class="fa fa-angle-double-right" aria-hidden="true"></i>Video</a></li>
                   </ul>
                </li>
-               <li class="nav-item"> <a class="nav-link" href="{{ asset('video') }}">Video</a> </li>
-               <li class="nav-item"> <a class="nav-link" href="{{ asset('galeri') }}">Galeri</a> </li>
                <li class="nav-item"> <a class="nav-link" href="{{ asset('kontak') }}">Kontak</a> </li>
             </ul>
          </div>
