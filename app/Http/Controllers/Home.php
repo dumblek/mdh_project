@@ -21,6 +21,7 @@ class Home extends Controller
         $layanan        = DB::table('berita')->where(array('jenis_berita'=>'Layanan','status_berita'=>'Publish'))->limit(5)->orderBy('urutan', 'ASC')->get();
         $news           = new Berita_model();
         $berita         = $news->home();
+        $updates         = $news->updates();
 
         $data = array(  'title'         => $site_config->namaweb.' - '.$site_config->tagline,
                         'deskripsi'     => $site_config->namaweb.' - '.$site_config->tagline,
@@ -28,7 +29,7 @@ class Home extends Controller
                         'slider'        => $slider,
                         'site_config'   => $site_config,
                         'berita'        => $berita,
-                        'beritas'       => $berita,
+                        'updates'       => $updates,
                         'layanan'       => $layanan,
                         'video'         => $video,
                         'content'       => 'home/index'

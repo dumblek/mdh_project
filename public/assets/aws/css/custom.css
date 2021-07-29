@@ -2638,7 +2638,7 @@ ul.topbar-social li {
 	color: #fff;
 }
 .acclink {
-	background: #000;
+	background: rgb(0, 0, 0);
 	color: #fff;
 	display: inline-block;
 	line-height: 40px;
@@ -2692,7 +2692,9 @@ ul.topbar-social li {
 	padding: 0 20px;
 }
 .navrow .navbar-expand-lg .navbar-nav .nav-link:hover {
-	background: #20b1aa;
+	background: none;
+	color: #00b894;
+	font-weight: bold;
 }
 .navrow .navbar-nav .nav-item {
 	border-right: 1px dashed #d7d7d7;
@@ -2709,7 +2711,7 @@ ul.topbar-social li {
 	float: left;
 	min-width: 320px;
 	padding: 0;
- margin: .125rem 0 0;
+ 	margin: .125rem 0 0;
 	font-size: 14px;
 	color: #212529;
 	text-align: left;
@@ -2718,6 +2720,7 @@ ul.topbar-social li {
 	background-clip: padding-box;
 	border: 0px solid rgba(0,0,0,.15);
 	border-radius: 0;
+	margin-top: 18px;
 }
 .navrow .dropdown-menu li:last-child a {
 	border: 0px;
@@ -2725,12 +2728,12 @@ ul.topbar-social li {
 .navrow .dropdown-menu li a {
 	display: block;
 	line-height: 36px;
-	border-bottom: 1px solid #f1f1f1;
 	padding: 0 20px;
 	color: #666;
 }
 .navrow .dropdown-menu li {
 	position: relative;
+	border-top: 1px dashed #f1f1f1;
 }
 .navrow .dropdown-menu li:hover .dropdown-menu {
 	display: block;
@@ -2743,8 +2746,9 @@ ul.topbar-social li {
 	margin: 0px;
 }
 .navrow .dropdown-menu li a:hover {
-	background: #20b1aa;
-	color: #fff;
+	background: none;
+	color: #00b894;
+	font-weight: bold;
 }
 a.con-btn {
 	float: right;
@@ -3756,6 +3760,8 @@ a.read-post:hover {
 .blog-thumb img {
 	width: 100%;
 	height: auto;
+    height: 155px;
+    object-fit: cover;
 }
 .post-txt p {
 	color: #555;

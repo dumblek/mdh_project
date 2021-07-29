@@ -129,14 +129,28 @@ class Berita_model extends Model
         return $query;
     }
 
-    // listing
+    // listing berita
     public function home()
     {
         $query = DB::table('berita')
              ->join('kategori', 'kategori.id_kategori', '=', 'berita.id_kategori','LEFT')
             ->join('users', 'users.id_user', '=', 'berita.id_user','LEFT')
             ->select('berita.*', 'kategori.slug_kategori', 'kategori.nama_kategori','users.nama')
-            ->where(array('berita.status_berita'=>'Publish','berita.jenis_berita' => 'Berita'))
+            ->where(array('berita.status_berita'=>'Publish','berita.jenis_berita' => 'Berita', 'kategori.nama_kategori' => 'Berita'))
+            ->orderBy('id_berita','DESC')
+            ->limit(6)
+            ->get();
+        return $query;
+    }
+
+    // listing update(pengumuman)
+    public function updates()
+    {
+        $query = DB::table('berita')
+             ->join('kategori', 'kategori.id_kategori', '=', 'berita.id_kategori','LEFT')
+            ->join('users', 'users.id_user', '=', 'berita.id_user','LEFT')
+            ->select('berita.*', 'kategori.slug_kategori', 'kategori.nama_kategori','users.nama')
+            ->where(array('berita.status_berita'=>'Publish','berita.jenis_berita' => 'Berita', 'kategori.nama_kategori' => 'Updates'))
             ->orderBy('id_berita','DESC')
             ->limit(6)
             ->get();

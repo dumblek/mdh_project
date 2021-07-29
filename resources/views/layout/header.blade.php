@@ -23,5 +23,5 @@ $site_config = DB::table('konfigurasi')->first();
             </div>
          </div>
       </div>
-      <div class="navrow">
+<div class="navrow" id="myNav">
 <div class="container">

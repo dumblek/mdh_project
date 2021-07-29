@@ -10,18 +10,18 @@ $nav_berita  = $myprofil->nav_berita();
 $nav_terjadi  = $myprofil->nav_terjadi();
 $nav_materi  = $myprofil->nav_materi();
 ?>
-<div class="row mt-2">
+<div class="row mt-2 mb-2">
    <div class="col-md-12">
-      <nav class="navbar navbar-expand-lg">
+      <nav class="navbar navbar-expand-lg" >
          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <i class="fas fa-bars"></i> </button>
          <div class="collapse navbar-collapse" id="navbarSupportedContent">
          <div class="logo"><a href="{{ asset('/') }}"><img src="{{ asset('assets/upload/image/'.$site_config->logo) }}" alt="{{ $site_config->namaweb }}" style="max-height: 80px; width: auto;"></a></div>
             <ul class="navbar-nav mr-auto">
                <li class="nav-item"><a class="nav-link" href="{{ asset('/') }}">Beranda</a> </li>
-               <li class="nav-item"><a class="nav-link" href="{{ asset('javawebmedia') }}">About Us</a> </li>
+               <li class="nav-item"><a class="nav-link" href="{{ asset('javawebmedia') }}">Tentang</a> </li>
                <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Berita &amp; Updates <span class="pull-right"><i class="fas fa-caret-down"></i></span></a>
-                  <ul class="dropdown-menu" >
+                  <ul class="dropdown-menu">
                      <?php foreach($nav_berita as $nav_berita) { ?>
                      <li><a href="{{ asset('berita/kategori/'.$nav_berita->slug_kategori) }}"><i class="fa fa-angle-double-right" aria-hidden="true"></i> {{ Str::words($nav_berita->nama_kategori,4) }}</a></li>
                      <?php } ?>

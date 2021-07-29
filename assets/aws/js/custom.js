@@ -1,3 +1,4 @@
+console.log('woioioi iki neng custom');
 jQuery(document).ready(function($) {
     "use strict"
 
@@ -470,3 +471,11 @@ jQuery(document).ready(function($) {
 		}
 	});
 	// ------- Masonry End ------- //
+
+	// ------- Navbar --------- //
+	console.log('woi kok ra dieksekusi');
+	$(window).scroll(function(){
+		var scroll = $(window).scrollTop();
+		console.log(scroll);
+	});
+	// ------- Navbar --------- //
