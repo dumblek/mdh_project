@@ -10,10 +10,10 @@
       </li>
       
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="{{ asset('panduan') }}" target="_blank" class="nav-link"><i class="fa fa-file-pdf"></i> Panduan</a>
+        <a href="{{ asset('/') }}" target="_blank" class="nav-link"><i class="fa fa-home"></i> Beranda</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="{{ asset('/') }}" target="_blank" class="nav-link"><i class="fa fa-home"></i> Beranda</a>
+        <a href="{{ asset('admin/dasbor/slideshow') }}" target="_blank" class="nav-link"><i class="fa fa-laptop"></i> Slide Show</a>
       </li>
     </ul>
 

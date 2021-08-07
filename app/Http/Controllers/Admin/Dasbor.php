@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Konfigurasi_model;
+use App\Models\Berita_model;
 use Image;
 use PDF;
 
@@ -27,5 +28,26 @@ class Dasbor extends Controller
                         'content'   => 'admin/dasbor/index'
                     );
         return view('admin/layout/wrapper',$data);
+    }
+
+    public function slideshow()
+    {
+        if(Session()->get('username')=="") {
+            $last_page = url()->full();
+            return redirect('login?redirect='.$last_page)->with(['warning' => 'Mohon maaf, Anda belum login']);
+        }
+    	$mysite = new Konfigurasi_model();
+		$site 	= $mysite->listing();
+        $model 	= new Berita_model();
+		$berita = $model->updates();
+
+        $data = array(  'title'     => 'Berita dan Update',
+                        'deskripsi' => 'Berita dan Update',
+                        'keywords'  => 'Berita dan Update',
+                        'site'		=> $site,
+                        'updates'	=> $berita,
+                    );
+
+        return view('admin/slideshow/index',$data);
     }
 }
