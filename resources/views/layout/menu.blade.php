@@ -21,8 +21,8 @@ $nav_materi  = $myprofil->nav_materi();
                <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Tentang <span class="pull-right"><i class="fas fa-caret-down"></i></span></a>
                   <ul class="dropdown-menu" >            
-                     <li><a href="{{ asset('profil') }}"><i class="fa fa-angle-double-right" aria-hidden="true"></i>Profil</a></li>
-                     <li><a href="{{ asset('saldo') }}"><i class="fa fa-angle-double-right" aria-hidden="true"></i>Informasi Saldo</a></li>
+                     <li><a href="{{ asset('profil') }}"><i class="fa fa-angle-double-right" aria-hidden="true"></i> Profil</a></li>
+                     <li><a href="{{ asset('saldo') }}"><i class="fa fa-angle-double-right" aria-hidden="true"></i> Informasi Saldo</a></li>
                   </ul>
                </li>
                <li class="nav-item dropdown">
@@ -44,8 +44,8 @@ $nav_materi  = $myprofil->nav_materi();
                <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Galeri <span class="pull-right"><i class="fas fa-caret-down"></i></span></a>
                   <ul class="dropdown-menu" >            
-                     <li><a href="{{ asset('galeri') }}"><i class="fa fa-angle-double-right" aria-hidden="true"></i>Foto</a></li>
-                     <li><a href="{{ asset('video') }}"><i class="fa fa-angle-double-right" aria-hidden="true"></i>Video</a></li>
+                     <li><a href="{{ asset('galeri') }}"><i class="fa fa-angle-double-right" aria-hidden="true"></i> Foto</a></li>
+                     <li><a href="{{ asset('video') }}"><i class="fa fa-angle-double-right" aria-hidden="true"></i> Video</a></li>
                   </ul>
                </li>
                <li class="nav-item"> <a class="nav-link" href="{{ asset('kontak') }}">Kontak</a> </li>

@@ -108,7 +108,7 @@ class Home extends Controller
             }
         } 
         $saldo_akhir = $total_pemasukan - $total_pengeluaran + $saldo_awal;
-        $data = array(  'title'             => 'Informasi Saldo',
+        $data = array(  'title'             => 'Laporan Keuangan',
                         'deskripsi'         => 'Tentang '.$site_config->namaweb,
                         'keywords'          => 'Tentang '.$site_config->namaweb,
                         'site_config'       => $site_config,

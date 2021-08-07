@@ -16,7 +16,7 @@ $bg   = DB::table('heading')->where('halaman','AWS')->orderBy('id_heading','DESC
          <div class="row">
             <div class="col-lg-12">
                <div class="about-text">
-                  <h2 class="text-center">{{ $title }}</h2>
+                  <h6 class="text-left" style="padding-left:10%;">{{ 'Periode: ' . $default_start .' s/d '. $default_end }}</h6>
                   <div style="padding-left:10%; padding-right:10%">
                      <table class="table table-sm">
                         <thead>
