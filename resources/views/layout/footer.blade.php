@@ -29,10 +29,10 @@ $nav_layananf = $myprofil->nav_layanan();
          <!--Footer Widget Start-->
          <div class="col-md-5 col-sm-6">
             <div class="footer-widget">
-               <h3>Layanan</h3>
+               <h3>Program dan Kegiatan</h3>
                <ul class="lastest-products">
                   <?php foreach($nav_layananf as $nav_layananf) { ?>
-                  <li><img src="{{ asset('assets/upload/image/thumbs/'.$nav_layananf->gambar) }}" alt="{{ $nav_layananf->judul_berita }}"> <strong><a href="{{ asset('layanan/'.$nav_layananf->slug_berita) }}">{{ $nav_layananf->judul_berita }}</a></strong> <span class="pdate"><i>Updated:</i> <?php echo tanggal('tanggal_id',$nav_layananf->tanggal_post) ?></span> </li>
+                  <li><strong><a href="{{ asset('layanan/'.$nav_layananf->slug_berita) }}">{{ $nav_layananf->judul_berita }}</a></strong> <span class="pdate"><i>Updated:</i> <?php echo tanggal('tanggal_id',$nav_layananf->tanggal_post) ?></span> </li>
                   <?php } ?>
                </ul>
             </div>

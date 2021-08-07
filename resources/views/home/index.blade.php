@@ -67,7 +67,7 @@
                                  <li> <a href="{{ asset('berita/kategori/'.$berita->slug_berita) }}"><i class="fas fa-sitemap"></i> {{ $berita->nama_kategori }}</a> </li>
                               </ul>
                               <p><?php echo \Illuminate\Support\Str::limit(strip_tags($berita->isi), 100, $end='...') ?></p>
-                              <a href="{{ asset('berita/read/'.$berita->slug_berita) }}" class="read-post">Baca detail</a>
+                              <a href="{{ asset('berita/read/'.$berita->slug_berita) }}" class="">Baca selengkapnya</a>
                            </div>
                         </div>
                      </div>
@@ -97,6 +97,10 @@
                            <img src="{{ asset('assets/upload/image/thumbs/'.$update->gambar) }}" alt="{{ $update->judul_berita }}" class="img img-thumbnail img-fluid">      
                            <hr>
                            <h5><?php echo $update->judul_berita ?></h5>
+                           <ul class="post-meta">
+                              <li> <i class="fas fa-calendar-alt"></i> {{ tanggal('tanggal_id',$update->tanggal_post)}} </li>
+                              <li> <i class="fas fa-sitemap"></i> {{ $update->nama_kategori }} </li>
+                           </ul>
                            <?php echo \Illuminate\Support\Str::limit(strip_tags($update->keywords), 100, $end='...') ?>
                            <div class="tuser">
                               <a href="{{ asset('berita/read/'.$update->slug_berita) }}" class="btn btn-success"><i class="fa fa-laptop"></i> Lihat Detail</a>

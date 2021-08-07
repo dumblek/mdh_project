@@ -15,7 +15,7 @@ $bg   = DB::table('heading')->where('halaman','Berita')->orderBy('id_heading','D
          <div class="row">
             <?php foreach($berita as $berita) { ?>
             <!--Blog Small Post Start-->
-            <div class="col-md-6 col-sm-12">
+            <div class="col-md-3 col-sm-12">
                <div class="blog-post">
                   <div class="blog-thumb"> <a href="{{ asset('berita/read/'.$berita->slug_berita) }}"><i class="fas fa-link"></i></a> <img src="{{ asset('assets/upload/image/thumbs/'.$berita->gambar) }}" alt="><?php  echo $berita->judul_berita ?>"> </div>
                   <div class="post-txt">

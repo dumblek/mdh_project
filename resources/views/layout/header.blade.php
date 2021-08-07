@@ -12,12 +12,12 @@ $site_config = DB::table('konfigurasi')->first();
                </div>
                <div class="col-md-6">
                   <ul class="topbar-social">
-                     <li class="social-links"> 
-                        <a href="{{ $site_config->twitter }}"><i class="fab fa-twitter"></i></a> 
+                     <li> <a class="acclink" href="{{ 'login' }}">Login</a> </li>
+                     <li class="social-links">  
                         <a href="{{ $site_config->facebook }}"><i class="fab fa-facebook"></i></a> 
-                        <a href="{{ $site_config->instagram }}"><i class="fab fa-instagram"></i></a> 
-                     </li>
-                     <li> <a class="acclink" href="{{ 'login' }}">Login</a> </li>                     
+                        <a href="{{ $site_config->instagram }}"><i class="fab fa-instagram"></i></a>
+                        <a href="{{ $site_config->twitter }}"><i class="fab fa-youtube"></i></a> 
+                     </li>                     
                   </ul>
                </div>
             </div>

@@ -536,7 +536,8 @@ Home Page Content Start
 }
 section#home-slider img {
 	width: 100%;
-	height: auto;
+	height: 520px;
+	object-fit: cover;
 }
 #home-slider.owl-theme .owl-nav {
 	position: absolute;
@@ -2601,7 +2602,7 @@ Home Page 3 Style 3 Start
 	font-family: 'Lato', sans-serif;
 }
 .header-style-3 .topbar {
-	background: #00b894;
+	background: #28a745;
 	height: 40px;
 }
 .header-style-3 .topbar p {
@@ -2619,7 +2620,7 @@ ul.topbar-social {
 }
 ul.topbar-social li {
 	display: inline-block;
-	margin-left: 20px;
+	margin-left: 0;
 }
 .social-links a {
 	border: 1px solid #fff;
@@ -2633,20 +2634,20 @@ ul.topbar-social li {
 	line-height: 22px;
 }
 .social-links a:hover {
-	border-color: #20b1aa;
-	background: #20b1aa;
+	border-color: rgba(139,195,74,1);
+	background: rgba(139,195,74,1);
 	color: #fff;
 }
 .acclink {
-	background: rgb(0, 0, 0);
-	color: #fff;
+	background: #28a745;
+	color: #28a745;
 	display: inline-block;
 	line-height: 40px;
 	padding: 0 20px;
 	font-family: 'Roboto Condensed', sans-serif;
 }
 .acclink:hover {
-	background: #28C4D8;
+	background: #28a745;
 	color: #fff;
 }
 .header-contact {
@@ -2693,7 +2694,7 @@ ul.topbar-social li {
 }
 .navrow .navbar-expand-lg .navbar-nav .nav-link:hover {
 	background: none;
-	color: #00b894;
+	color: #28a745;
 	font-weight: bold;
 }
 .navrow .navbar-nav .nav-item {
@@ -2747,7 +2748,7 @@ ul.topbar-social li {
 }
 .navrow .dropdown-menu li a:hover {
 	background: none;
-	color: #00b894;
+	color: #28a745;
 	font-weight: bold;
 }
 a.con-btn {
