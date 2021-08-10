@@ -68,7 +68,7 @@
         <div id="statis" onclick="exitFullscreen();">
             <div class="row">
                 <div class="col-md-3">
-                    <h5 style="color: white;">{{ $today["gregorian"] }}</h5>
+                    <h5 id="time" style="color: white; text-align:center"></h5>
                 </div>
                 <div class="col-md-9">
                     <div class="d-flex">
@@ -112,6 +112,29 @@
         function exitFullscreen() {
             const cancellFullScreen = document.exitFullscreen || document.mozCancelFullScreen || document.webkitExitFullscreen || document.msExitFullscreen;
             cancellFullScreen.call(document);
+        }
+
+        var timestamp = '<?=time();?>';
+        
+        function updateTime(){
+            MyDate = new Date(Date(timestamp));
+            formatedDate=format_date(MyDate);
+            $('#time').html(formatedDate);
+            timestamp++;
+        }
+        $(function(){
+            setInterval(updateTime, 1000);
+        });
+
+        function format_date(d) {
+            tday=new Array("Ahad","Senin","Selasa","Rabu","Kamis","Jumat","Sabtu");
+            tmonth=new Array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember");
+            
+            var nday=d.getDay(),nmonth=d.getMonth(),ndate=d.getDate(),nyear=d.getFullYear(),nhour=d.getHours(),nmin=d.getMinutes(),nsec=d.getSeconds();
+            if(nmin<=9) nmin="0"+nmin;
+            if(nsec<=9) nsec="0"+nsec;
+            
+            return ""+tday[nday]+", "+ndate+" "+tmonth[nmonth]+" "+nyear+"</br>"+nhour+":"+nmin+":"+nsec+" WIB"+""
         }
     </script>
 </body>
