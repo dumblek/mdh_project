@@ -126,6 +126,20 @@
             </ul>
           </li>
 
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-utensils"></i>
+              <p>ATM Beras<i class="fas fa-angle-left right"></i></p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item"><a href="{{ asset('admin/berasin') }}" class="nav-link"><i class="fas fa-arrow-alt-circle-down nav-icon"></i><p>Beras Masuk</p></a>
+              </li>
+              <li class="nav-item"><a href="{{ asset('admin/berasout') }}" class="nav-link"><i class="fas fa-arrow-alt-circle-up nav-icon"></i><p>Beras Keluar</p></a>
+              </li>
+              <li class="nav-item"><a href="{{ asset('admin/beras') }}" class="nav-link"><i class="fas fa-wallet nav-icon"></i><p>Informasi Saldo Beras</p></a>
+            </ul>
+          </li>
+
           <!-- Website Content -->
           <li class="batas"><hr> <span class="infoku"><i class="fa fa-certificate"></i> Profil &amp; Layanan</span></li>
           <li class="batas"><hr></li>

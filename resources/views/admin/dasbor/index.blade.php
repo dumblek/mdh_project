@@ -1,6 +1,7 @@
 <?php
 use Illuminate\Support\Facades\DB;
 use App\Models\Keuangan_model;
+use App\Models\Beras_model;
 ?>
 
 <div class="alert alert-info">
@@ -191,8 +192,27 @@ use App\Models\Keuangan_model;
         <span class="info-box-text">Saldo Akhir</span>
         <span class="info-box-number">
           <?php 
-          $pemasukan = Keuangan_model::where('type', 'in')->orderBy('tanggal', 'desc')->first();
-          echo $pemasukan->saldo;
+          $keuangan = new Keuangan_model;
+          echo $keuangan->saldo;
+          ?>
+        </span>
+      </div>
+      <!-- /.info-box-content -->
+    </div>
+    <!-- /.info-box -->
+  </div>
+  <!-- /.col -->
+
+  <div class="col-12 col-sm-6 col-md-3">
+    <div class="info-box">
+      <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-utensils"></i></span>
+
+      <div class="info-box-content">
+        <span class="info-box-text">Saldo Beras</span>
+        <span class="info-box-number">
+          <?php 
+          $beras = new Beras_model;
+          echo $beras->saldo . ' Kg';
           ?>
         </span>
       </div>

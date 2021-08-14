@@ -6,49 +6,39 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
-class Keuangan_model extends Model
+class Beras_model extends Model
 {
     use HasFactory;
 
-    protected $table = 'keuangan';
+    protected $table = 'beras';
 
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id', 'id_user');
     }
 
-    public function getRupiahAttribute()
-    {
-        $hasil_rupiah = "Rp " . number_format($this->amount,2,',','.');
-        return $hasil_rupiah;
-    }
-
     public function getSaldoAttribute()
     {
-        $keuangan = Keuangan_model::get();
+        $beras = Beras_model::get();
         //mencari total
         $total_pemasukan = 0;
         $total_pengeluaran = 0;
-        foreach($keuangan as $uang)
+        foreach($beras as $b)
         {
-            if ($uang->type == 'in'){
-                $total_pemasukan += $uang->amount;
+            if ($b->type == 'in'){
+                $total_pemasukan += $b->jumlah;
             } else {
-                $total_pengeluaran += $uang->amount;
+                $total_pengeluaran += $b->jumlah;
             }
         } 
         $saldo_akhir = $total_pemasukan - $total_pengeluaran;
-        $hasil_rupiah = "Rp " . number_format($saldo_akhir,2,',','.');
-        return $hasil_rupiah;
+        return $saldo_akhir;
     }
 
-    public static function getNota($type, $kategori)
+    public static function getNota($type)
     {
-        $kode_kategori = DB::table('kategori_kas')->find($kategori)->kode;
-        
-        $lastorderId = DB::table('keuangan')
+        $lastorderId = DB::table('beras')
                         ->where('type', $type)
-                        ->where('kategori_id', $kategori)
                         ->where('kode', 'like', '%'. date('ym') . '%')
                         ->orderBy('kode', 'desc')->first()->kode ?? 0;
 
@@ -56,7 +46,7 @@ class Keuangan_model extends Model
         $lastIncreament = substr($lastorderId, -3);
 
         // Make a new order id with appending last increment + 1
-        $newOrderId = $kode_kategori . '.' . substr(strtoupper($type),0,3) . '/' . date('ym') . str_pad($lastIncreament + 1, 3, 0, STR_PAD_LEFT);
+        $newOrderId = 'BRS.'. substr(strtoupper($type),0,3) . '/' . date('ym') . str_pad($lastIncreament + 1, 3, 0, STR_PAD_LEFT);
 
         return $newOrderId;
     }

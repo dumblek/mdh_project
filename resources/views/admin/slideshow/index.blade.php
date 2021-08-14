@@ -70,7 +70,11 @@
                 <div class="col-md-3">
                     <h5 id="time" style="color: white; text-align:center"></h5>
                 </div>
-                <div class="col-md-9">
+                <div class="col-md-3">
+                    <h5 style="color: white; text-align:left">Saldo Akhir : <?php echo $saldo_keuangan; ?></h5>
+                    <h5 style="color: white; text-align:left">Saldo Beras : <?php echo $saldo_beras; ?> Kg</h5>
+                </div>
+                <div class="col-md-6">
                     <div class="d-flex">
                         <marquee class="" scrollamount="2" behavior="alternate">
                             <h5 style="color: white;">
