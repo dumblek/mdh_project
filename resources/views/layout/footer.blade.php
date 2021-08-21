@@ -32,7 +32,7 @@ $nav_layananf = $myprofil->nav_layanan();
                <h3>Program dan Kegiatan</h3>
                <ul class="lastest-products">
                   <?php foreach($nav_layananf as $nav_layananf) { ?>
-                  <li><strong><a href="{{ asset('layanan/'.$nav_layananf->slug_berita) }}">{{ $nav_layananf->judul_berita }}</a></strong> <span class="pdate"><i>Updated:</i> <?php echo tanggal('tanggal_id',$nav_layananf->tanggal_post) ?></span> </li>
+                  <li><strong><a href="{{ asset('berita/layanan/'.$nav_layananf->slug_berita) }}">{{ $nav_layananf->judul_berita }}</a></strong> <span class="pdate"><i>Updated:</i> <?php echo tanggal('tanggal_id',$nav_layananf->tanggal_post) ?></span> </li>
                   <?php } ?>
                </ul>
             </div>
