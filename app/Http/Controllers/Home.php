@@ -4,10 +4,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
-use App\Models\Rekening_model;
 use App\Models\Berita_model;
-use App\Models\Staff_model;
 use App\Models\Keuangan_model;
+use App\Models\Beras_model;
 use PDF;
 
 class Home extends Controller
@@ -66,7 +65,7 @@ class Home extends Controller
         //default range tanggal sebulan sebelum hari ini
         $default_end = now()->format('Y-m-d');
         $default_start = date("Y-m-d", strtotime("$default_end -30 day"));
-        //get data
+        //get data keuangan
         $kategori_kas = DB::table('kategori_kas')->orderBy('nama','ASC')->get();
         $keuangan_all = Keuangan_model::orderBy('tanggal', 'asc')->get();
         $keuangan = $keuangan_all->whereBetween('tanggal', [$default_start, $default_end]);
@@ -108,7 +107,43 @@ class Home extends Controller
             }
         } 
         $saldo_akhir = $total_pemasukan - $total_pengeluaran + $saldo_awal;
-        $data = array(  'title'             => 'Laporan Keuangan',
+
+        //get data beras
+        $beras_all = Beras_model::orderBy('tanggal', 'asc')->get();
+        $beras = $beras_all->whereBetween('tanggal', [$default_start, $default_end]);
+        $beras_masuk = []; 
+        $beras_keluar = [];
+        foreach ($beras as $b){
+            if ($b->type == 'in'){
+                array_push($beras_masuk, $b);
+            } else {
+                array_push($beras_keluar, $b);
+            }
+        }
+        //mencari saldo awal
+        $beras_saldo_awal = $beras_all->where('tanggal', '<=', $tanggal_saldo_awal);
+        $saldo_awal_beras = 0;
+        foreach ($beras_saldo_awal as $data){
+            if ($data->type == 'in'){
+                $saldo_awal_beras += $data->jumlah;
+            } else {
+                $saldo_awal_beras -= $data->jumlah;
+            }
+        };
+        //mencari total
+        $total_beras_masuk = 0;
+        $total_beras_keluar = 0;
+        foreach($beras as $b)
+        {
+            if ($b->type == 'in'){
+                $total_beras_masuk += $b->jumlah;
+            } else {
+                $total_beras_keluar += $b->jumlah;
+            }
+        } 
+        $saldo_akhir_beras = $total_beras_masuk - $total_beras_keluar + $saldo_awal_beras;
+
+        $data = array(  'title'             => 'Informasi Saldo Keuangan dan Beras',
                         'deskripsi'         => 'Tentang '.$site_config->namaweb,
                         'keywords'          => 'Tentang '.$site_config->namaweb,
                         'site_config'       => $site_config,
@@ -121,6 +156,12 @@ class Home extends Controller
                         'saldo_akhir'       => self::rupiah($saldo_akhir),
                         'tanggal_saldo_awal'=> $tanggal_saldo_awal,
                         'saldo_awal'        => self::rupiah($saldo_awal),
+                        'beras_masuk'       => $beras_masuk,
+                        'beras_keluar'      => $beras_keluar,
+                        'total_beras_masuk' => $total_beras_masuk,
+                        'total_beras_keluar'=> $total_beras_keluar,
+                        'saldo_akhir_beras' => $saldo_akhir_beras,
+                        'saldo_awal_beras'  => $saldo_awal_beras,
                         'default_start'     => $default_start,
                         'default_end'       => $default_end,
                         'content'           => 'home/saldo'
