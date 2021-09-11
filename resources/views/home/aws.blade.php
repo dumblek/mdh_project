@@ -86,7 +86,7 @@ $bg2   = DB::table('heading')->where('halaman','Team')->orderBy('id_heading','DE
                   <img src="{{ asset('assets/upload/image/thumbs/'.$layanan->gambar) }}" alt="{{ $layanan->judul_berita }}" class="img img-thumbnail img-fluid">
                   <h6>{{ $layanan->judul_berita }}</h6>
                   <p>{{ $layanan->keywords }}</p>
-                  <a href="{{ asset('layanan/'.$layanan->slug_berita) }}">Lihat detail</a> 
+                  <a href="{{ asset('berita/layanan/'.$layanan->slug_berita) }}">Lihat detail</a> 
                </div>
             </div>
             <!--box  end--> 
