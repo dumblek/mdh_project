@@ -238,7 +238,8 @@ class Agenda extends Controller
                 'tempat'            => $request->tempat,
                 'google_map'        => $request->google_map,
                 'tanggal_publish'   => date('Y-m-d',strtotime($request->tanggal_publish)).' '.$request->jam_publish,
-                'tanggal_post'      => date('Y-m-d H:i:s')
+                'tanggal_post'      => date('Y-m-d H:i:s'),
+                'gambar'            => $input['nama_file']
             ]);
         }else{
             $slug_agenda = Str::slug($request->judul_agenda, '-');
@@ -307,7 +308,8 @@ class Agenda extends Controller
                 'keywords'          => $request->keywords,
                 'tempat'            => $request->tempat,
                 'google_map'        => $request->google_map,
-                'tanggal_publish'   => date('Y-m-d',strtotime($request->tanggal_publish)).' '.$request->jam_publish
+                'tanggal_publish'   => date('Y-m-d',strtotime($request->tanggal_publish)).' '.$request->jam_publish,
+                'gambar'            => $input['nama_file']
             ]);
         }else{
             $slug_agenda = Str::slug($request->judul_agenda, '-');

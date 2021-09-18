@@ -26,7 +26,7 @@ $nav_materi  = $myprofil->nav_materi();
                   </ul>
                </li>
                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Berita &amp; Updates <span class="pull-right"><i class="fas fa-caret-down"></i></span></a>
+                  <a class="nav-link dropdown-toggle" href="#"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Berita &amp; Artikel <span class="pull-right"><i class="fas fa-caret-down"></i></span></a>
                   <ul class="dropdown-menu">
                      <?php foreach($nav_berita as $nav_berita) { ?>
                      <li><a href="{{ asset('berita/kategori/'.$nav_berita->slug_kategori) }}"><i class="fa fa-angle-double-right" aria-hidden="true"></i> {{ Str::words($nav_berita->nama_kategori,4) }}</a></li>
@@ -41,6 +41,7 @@ $nav_materi  = $myprofil->nav_materi();
                      <?php } ?>
                   </ul>
                </li>
+               <li class="nav-item"> <a class="nav-link" href="{{ asset('agenda') }}">Agenda</a> </li>
                <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Galeri <span class="pull-right"><i class="fas fa-caret-down"></i></span></a>
                   <ul class="dropdown-menu" >            

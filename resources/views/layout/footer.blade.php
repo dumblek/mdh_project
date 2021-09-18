@@ -66,10 +66,10 @@ $nav_layananf = $myprofil->nav_layanan();
          <!--Footer Widget End--> 
       </div>
       <div class="row footer-copyr">
-         <div class="col-md-4 col-sm-4"> <img src="{{ asset('assets/upload/image/'.$site_config->logo) }}" alt="" style="max-height: 50px; width: auto;"> </div>
+         <div class="col-md-4 col-sm-4"> <img src="{{ asset('assets/upload/image/logo_putih.png') }}" alt="" style="max-height: 50px; width: auto;"> </div>
          <div class="col-md-8 col-sm-8">
-               <p><a target="_blank" href="https://javawebmedia.com">{{ $site_config->namaweb }}</a></p>
-            </div>
+            <p>Copyright ©2021 All rights reserved | Developed and maintained by <a target="_blank" href="https://darulhusna.com" style="color:#66bb6a; :hover { color: red; }">{{ $site_config->namaweb }}</a></p>
+         </div>
       </div>
    </div>
 </footer>

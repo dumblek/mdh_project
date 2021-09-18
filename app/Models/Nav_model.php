@@ -24,7 +24,7 @@ class Nav_model extends Model
     public function nav_berita()
     {
         $query = DB::table('kategori')
-            ->orderBy('kategori.urutan','DESC')
+            ->orderBy('kategori.urutan','ASC')
             ->get();
         return $query;
     }

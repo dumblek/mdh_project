@@ -5,7 +5,7 @@ use App\Models\Beras_model;
 ?>
 
 <div class="alert alert-info">
-  <p>Hai <strong>{{ Session()->get('nama') }}</strong>, Selamat datang di Halaman Dashboard Administrator</p>
+  <p>Asalamualaikum <strong>{{ Session()->get('nama') }}</strong>, Selamat datang di Halaman Dashboard Administrator Masjid Darul Husna &#128578;</p>
 </div>
 <hr>
 <!-- Info boxes -->

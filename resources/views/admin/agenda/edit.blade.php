@@ -79,37 +79,6 @@
 </div>
 
 <div class="row form-group">
-  <label class="col-md-3 text-right">Mulai</label>
-  <div class="col-md-3">
-    <input type="text" name="tanggal_mulai" class="form-control tanggal" placeholder="Tanggal mulai" value="<?php if(isset($_POST['tanggal_mulai'])) { echo old('tanggal_mulai'); }else{ echo tanggal('tanggal_id',$agenda->tanggal_mulai); } ?>" data-date-format="dd-mm-yyyy">
-    <small class="text-success">Format: dd-mm-yyyy</small>
-  </div>
-  <div class="col-md-3">
-    <input type="text" name="jam_mulai" class="form-control time-picker" placeholder="Jam mulai" value="<?php if(isset($_POST['jam_mulai'])) { echo old('jam_mulai'); }else{ echo $agenda->jam_mulai; } ?>">
-    <small class="text-success">Format: jam:menit:detik</small>
-  </div>
-</div>
-
-<div class="row form-group">
-  <label class="col-md-3 text-right">Selesai</label>
-  <div class="col-md-3">
-    <input type="text" name="tanggal_selesai" class="form-control tanggal" placeholder="Tanggal selesai" value="<?php if(isset($_POST['tanggal_selesai'])) { echo old('tanggal_selesai'); }else{ echo tanggal('tanggal_id',$agenda->tanggal_selesai); } ?>" data-date-format="dd-mm-yyyy">
-    <small class="text-success">Format: dd-mm-yyyy</small>
-  </div>
-  <div class="col-md-3">
-    <input type="text" name="jam_selesai" class="form-control time-picker" placeholder="Jam selesai" value="<?php if(isset($_POST['jam_selesai'])) { echo old('jam_selesai'); }else{ echo $agenda->jam_selesai; } ?>">
-    <small class="text-success">Format: jam:menit:detik</small>
-  </div>
-</div>
-
-<div class="row form-group">
-  <label class="col-md-3 text-right">Upload gambar</label>
-  <div class="col-md-6">
-    <input type="file" name="gambar" class="form-control" placeholder="Upload gambar">
-  </div>
-</div>
-
-<div class="row form-group">
   <label class="col-md-3 text-right">Tempat pelaksanaan</label>
   <div class="col-md-6">
     <?php $site   = DB::table('konfigurasi')->first(); ?>

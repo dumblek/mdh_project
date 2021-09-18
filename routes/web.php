@@ -42,6 +42,9 @@ Route::get('berita/read/{par1}', 'App\Http\Controllers\Berita@read');
 Route::get('berita/layanan/{par1}', 'App\Http\Controllers\Berita@layanan');
 Route::get('berita/terjadi/{par1}', 'App\Http\Controllers\Berita@terjadi');
 Route::get('berita/kategori/{par1}', 'App\Http\Controllers\Berita@kategori');
+// Agenda
+Route::get('agenda', 'App\Http\Controllers\Agenda@index');
+Route::get('agenda/read/{par1}', 'App\Http\Controllers\Agenda@read');
 // Akreditasi
 Route::get('provider-akreditasi', 'App\Http\Controllers\Akreditasi@index');
 Route::get('akreditasi/read/{par1}', 'App\Http\Controllers\Akreditasi@read');
