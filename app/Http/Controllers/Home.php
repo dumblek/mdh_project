@@ -7,6 +7,7 @@ use Illuminate\Support\Str;
 use App\Models\Berita_model;
 use App\Models\Keuangan_model;
 use App\Models\Beras_model;
+use App\Models\Agenda_model;
 use PDF;
 
 class Home extends Controller
@@ -20,7 +21,9 @@ class Home extends Controller
         $layanan        = DB::table('berita')->where(array('jenis_berita'=>'Layanan','status_berita'=>'Publish'))->limit(5)->orderBy('urutan', 'ASC')->get();
         $news           = new Berita_model();
         $berita         = $news->home();
-        $updates         = $news->updates();
+        $artikels        = $news->artikels();
+        $event          = new Agenda_model();
+        $agenda         = $event->semua();
 
         $data = array(  'title'         => $site_config->namaweb.' - '.$site_config->tagline,
                         'deskripsi'     => $site_config->namaweb.' - '.$site_config->tagline,
@@ -28,7 +31,8 @@ class Home extends Controller
                         'slider'        => $slider,
                         'site_config'   => $site_config,
                         'berita'        => $berita,
-                        'updates'       => $updates,
+                        'artikels'      => $artikels,
+                        'agenda'        => $agenda,
                         'layanan'       => $layanan,
                         'video'         => $video,
                         'content'       => 'home/index'

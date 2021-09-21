@@ -144,13 +144,13 @@ class Berita_model extends Model
     }
 
     // listing update(pengumuman)
-    public function updates()
+    public function artikels()
     {
         $query = DB::table('berita')
              ->join('kategori', 'kategori.id_kategori', '=', 'berita.id_kategori','LEFT')
             ->join('users', 'users.id_user', '=', 'berita.id_user','LEFT')
             ->select('berita.*', 'kategori.slug_kategori', 'kategori.nama_kategori','users.nama')
-            ->where(array('berita.status_berita'=>'Publish','berita.jenis_berita' => 'Berita', 'kategori.nama_kategori' => 'Updates'))
+            ->where(array('berita.status_berita'=>'Publish','berita.jenis_berita' => 'Berita', 'kategori.nama_kategori' => 'Artikel'))
             ->orderBy('id_berita','DESC')
             ->limit(6)
             ->get();

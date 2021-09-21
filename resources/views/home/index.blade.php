@@ -49,7 +49,7 @@
                            <h2>Berita & Updates</h2>
                         </div>
                      </div>
-                     <div class="col-md-6"> <a href="{{ asset('berita') }}" class="view-more">Lihat berita lainnya</a> </div>
+                     <div class="col-md-6"> <a href="{{ asset('berita/kategori/berita') }}" class="view-more">Lihat berita lainnya</a> </div>
                      <div class="col-md-12">
                         <hr>
                      </div>
@@ -86,24 +86,26 @@
                <div class="row">
                   <div class="col-md-12">
                      <div class="section-title-2 text-center">
-                        <h2>Informasi dan Pengumuman</h2>
+                        <h2>Agenda dan Kegiatan</h2>
                      </div>
                      <div id="testimonials" class="owl-carousel owl-theme">
                         <?php
-                        foreach($updates as $update) {
+                        foreach($agenda as $agenda) {
                         ?>
                         <!--testimonials box start-->
                         <div class="item">
-                           <img src="{{ asset('assets/upload/image/thumbs/'.$update->gambar) }}" alt="{{ $update->judul_berita }}" class="img img-thumbnail img-fluid">      
+                           <img src="{{ asset('assets/upload/image/thumbs/'.$agenda->gambar) }}" alt="{{ $agenda->judul_agenda }}" class="img img-thumbnail img-fluid">      
                            <hr>
-                           <h5><?php echo $update->judul_berita ?></h5>
+                           <h5><?php echo $agenda->judul_agenda ?></h5>
                            <ul class="post-meta">
-                              <li> <i class="fas fa-calendar-alt"></i> {{ tanggal('tanggal_id',$update->tanggal_post)}} </li>
-                              <li> <i class="fas fa-sitemap"></i> {{ $update->nama_kategori }} </li>
+                              <li> <i class="fas fa-sitemap"></i> {{ $agenda->nama_kategori_agenda }} </li>
+                              <li> <i class="fas fa-calendar-alt"></i> {{ tanggal('tanggal_id',$agenda->tanggal_mulai)}} </li>
+                              <li> <i class="fas fa-clock"></i> {{ $agenda->jam_mulai . ' s.d ' . $agenda->jam_selesai }} </li>
+                              <li> <i class="fas fa-map-marker-alt"></i> {{ $agenda->tempat }} </li>
                            </ul>
-                           <?php echo \Illuminate\Support\Str::limit(strip_tags($update->keywords), 100, $end='...') ?>
+                           <?php echo \Illuminate\Support\Str::limit(strip_tags($agenda->keywords), 100, $end='...') ?>
                            <div class="tuser">
-                              <a href="{{ asset('berita/read/'.$update->slug_berita) }}" class="btn btn-success"><i class="fa fa-laptop"></i> Lihat Detail</a>
+                              <a href="{{ asset('berita/read/'.$agenda->slug_agenda) }}" class="btn btn-success"><i class="fa fa-laptop"></i> Lihat Detail</a>
                            </div>
                         </div>
                         <!--testimonials box End--> 
@@ -114,5 +116,47 @@
             </div>
          </section>
          <!--Pengumuman--> 
+
+         <!--Blog Start-->
+         <section class="h2-news wf100 p80 blog">
+            <div class="blog-grid">
+               <div class="container">
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="section-title-2">
+                           <h5>Baca artikel</h5>
+                           <h2>Artikel</h2>
+                        </div>
+                     </div>
+                     <div class="col-md-6"> <a href="{{ asset('berita/kategori/artikel') }}" class="view-more">Baca artikel lainnya</a> </div>
+                     <div class="col-md-12">
+                        <hr>
+                     </div>
+                  </div>
+                  <div class="row" style="background-color: white; padding-top: 20px; padding-bottom: 20px; border-radius: 5px;">
+                     <?php foreach($artikels as $artikel) { ?>
+                     <!--Blog Small Post Start-->
+                     <div class="col-md-4 col-sm-6" >
+                        <div class="blog-post">
+                           <div class="blog-thumb"> <a href="{{ asset('berita/read/'.$artikel->slug_berita) }}"><i class="fas fa-link"></i></a> <img src="{{ asset('assets/upload/image/thumbs/'.$artikel->gambar) }}" alt="><?php  echo $artikel->judul_berita ?>"> </div>
+                           <div class="post-txt">
+                              <h5><a href="{{ asset('berita/read/'.$artikel->slug_berita) }}"><?php  echo $artikel->judul_berita ?></a></h5>
+                              <ul class="post-meta">
+                                 <li> <a href="{{ asset('berita/read/'.$artikel->slug_berita) }}"><i class="fas fa-calendar-alt"></i> {{ tanggal('tanggal_id',$artikel->tanggal_post)}}</a> </li>
+                                 <li> <a href="{{ asset('berita/kategori/'.$artikel->slug_berita) }}"><i class="fas fa-sitemap"></i> {{ $artikel->nama_kategori }}</a> </li>
+                              </ul>
+                              <p><?php echo \Illuminate\Support\Str::limit(strip_tags($artikel->isi), 100, $end='...') ?></p>
+                              <a href="{{ asset('berita/read/'.$artikel->slug_berita) }}" class="">Baca selengkapnya</a>
+                           </div>
+                        </div>
+                     </div>
+                     <!--Blog Small Post End--> 
+                     <?php } ?>
+                  </div>
+                  
+               </div>
+            </div>
+         </section>
+         <!--Blog End--> 
 
          
