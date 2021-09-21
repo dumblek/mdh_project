@@ -50,16 +50,16 @@
         </div>
         <div class="slides" id="slideshow">
             <?php
-                foreach($updates as $update) {
+                foreach($program as $program) {
             ?>
             <div class="p-3">
                 <div class="col-lg-6 text-center">
-                    <a href="#"><img src="{{ asset('assets/upload/image/'.$update->gambar) }}" alt="{{ $title }}" class="img img-fluid img-thumbnail img-slide"></a>
+                    <a href="#"><img src="{{ asset('assets/upload/image/'.$program->gambar) }}" alt="{{ $title }}" class="img img-fluid img-thumbnail img-slide"></a>
                 </div>
                 <div class="col-lg-6">
-                    <h4>{{ $update->judul_berita }}</h4>
+                    <h4>{{ $program->judul_berita }}</h4>
                     <div class="about-text text-aws">             
-                    <?php echo $update->isi ?>
+                    <?php echo $program->isi ?>
                     </div>
                 </div>
             </div>

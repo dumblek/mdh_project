@@ -182,4 +182,17 @@ class Berita_model extends Model
             ->first();
         return $query;
     }
+
+    //program atau layanan
+    public function program()
+    {
+        $query = DB::table('berita')
+            ->join('users', 'users.id_user', '=', 'berita.id_user','LEFT')
+            ->select('berita.*','users.nama')
+            ->where(array('berita.status_berita'=>'Publish','berita.jenis_berita' => 'Layanan'))
+            ->orderBy('id_berita','DESC')
+            ->limit(6)
+            ->get();
+        return $query;
+    }
 }

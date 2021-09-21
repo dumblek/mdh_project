@@ -47,7 +47,7 @@ class Dasbor extends Controller
         $saldo_beras = $beras->saldo;
 		$site 	= $mysite->listing();
         $model 	= new Berita_model;
-		$berita = $model->updates();
+		$program = $model->program();
         $response = Http::get('https://api.pray.zone/v2/times/today.json?city=yogyakarta');
         $jadwal_solat = $response->json()["results"]["datetime"][0]["times"];
         $today = $response->json()["results"]["datetime"][0]["date"];
@@ -56,7 +56,7 @@ class Dasbor extends Controller
                         'deskripsi'      => 'Berita dan Update',
                         'keywords'       => 'Berita dan Update',
                         'site'		     => $site,
-                        'updates'	     => $berita,
+                        'program'	     => $program,
                         'site_config'    => $site_config,
                         'saldo_keuangan' => $saldo_keuangan,
                         'saldo_beras'    => $saldo_beras,
