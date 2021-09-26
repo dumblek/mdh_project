@@ -6,11 +6,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Slide Show</title>
     <link href="{{ asset('assets/aws/css/bootstrap.min.css') }}" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="{{ asset('assets/admin/plugins/fontawesome-free/css/all.min.css') }}">
     <style>
+        /*********************************
+        Fonts Start
+        *********************************/
+        @import url('https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700');
+        @import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,700i,800');
+        @import url('https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i');
+        @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:300i,400,400i,700');
+        @import url('https://fonts.googleapis.com/css?family=Lato:300,400,700,900');
+        @font-face {
+            font-family: 'droidSans';
+            src: url('../webfonts/DroidSans-webfont.eot');
+            src: url('../webfonts/DroidSans-webfontd41d.eot?#iefix') format('embedded-opentype'), url('../webfonts/droidsans-webfont.woff2') format('woff2'), url('../webfonts/DroidSans-webfont.woff') format('woff'), url('../webfonts/DroidSans-webfont.ttf') format('truetype'), url('../webfonts/DroidSans-webfont.svg#droid_sansregular') format('svg');
+            font-weight: 400;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'droidSans';
+            src: url('../webfonts/DroidSans-Bold-webfont.eot');
+            src: url('../webfonts/DroidSans-Bold-webfontd41d.eot?#iefix') format('embedded-opentype'), url('../webfonts/droidsans-bold-webfont.woff2') format('woff2'), url('../webfonts/DroidSans-Bold-webfont.html') format('woff'), url('../webfonts/DroidSans-Bold-webfont-2.html') format('truetype'), url('../webfonts/DroidSans-Bold-webfont.svg#droid_sansbold') format('svg');
+            font-weight: 700;
+            font-style: normal;
+        }
+        /*********************************
+        Fonts End
+        *********************************/
         .slides {
             display: flex;
             scroll-snap-type: x mandatory;
-            height: 80%;
+            height: 65%;
+            background-color: white;
+        }
+
+        .font {
+            /* font-family: 'Roboto Slab'; */
+            /* font-family: 'droidSans'; */
+            font-family: 'Poppins', sans-serif;
+            /* font-family: 'Roboto', sans-serif; */
+            /* font-family: 'Roboto Condensed', sans-serif; */
         }
 
         .slides > div {
@@ -27,46 +63,80 @@
         }
 
         #statis {
-            background-color: green;
-            height: 10%;
-            padding: 10px;
+            background-color: white;
+            /* height: 10%;
+            padding: 10px; */
         }
 
         #topslide {
             background-color: white;
-            height: 10%;
+            /* height: 15%; */
         }
 
         .img-slide {
             max-width: 75%;
         }
+
+        .container1 {
+            float:left;
+            position: relative;
+            width: 35%;
+        }
+
+        .container2 {
+            float:left;
+            position: relative;
+            width: 65%;
+        }
+
+        .image{
+            float:left;
+        }
+
+        .title {
+            font-size: 20px;
+            position: absolute;
+            left: 30px;
+        }
         
     </style>
 </head>
 <body>
-    <div id="fullscreen">
+    <div id="fullscreen" class="font">
         <div id="topslide" class="text-center">
-            <div class="logo"><a href="{{ asset('/') }}"><img src="{{ asset('assets/upload/image/'.$site_config->logo) }}" alt="{{ $site_config->namaweb }}" style="max-height: 80px; width: auto;"></a></div>
+            <div class="row text-center" style="color: black; background-color: white">
+                    <div class="col" style="background-color: white;">
+                        <div class="m-3 mr-auto text-left">
+                            <h2>Sabtu,</h2>
+                            <h5>25 September 2021 / 10 Dzulhijah 1443H</h5>
+                        </div>
+                    </div>
+                    <div class="col" style="background-color: white;">
+                        <div class="logo m-3 mr-auto">
+                            <img src="{{ asset('assets/upload/image/'.$site_config->logo) }}" alt="{{ $site_config->namaweb }}" style="max-height: 80px; width: auto;"></a>
+                        </div>
+                    </div>
+                    <div class="col" style="background-color: white;">
+                        <div class="mt-4 mr-auto">
+                            <h1 style="font-size:60px">12:52:34</h1>
+                        </div>
+                    </div>
+                </div>
         </div>
         <div class="slides" id="slideshow">
             <?php
                 foreach($program as $program) {
             ?>
-            <div class="p-3">
-                <div class="col-lg-6 text-center">
-                    <a href="#"><img src="{{ asset('assets/upload/image/'.$program->gambar) }}" alt="{{ $title }}" class="img img-fluid img-thumbnail img-slide"></a>
-                </div>
-                <div class="col-lg-6">
-                    <h4>{{ $program->judul_berita }}</h4>
-                    <div class="about-text text-aws">             
-                    <?php echo $program->isi ?>
+                    <div class="text-center">
+                        <img style="object-fit: cover" width="100%" src="{{ asset('assets/upload/image/'.$program->gambar) }}" alt="{{ $title }}" class="">
                     </div>
-                </div>
-            </div>
-            <?php } ?>
+            <?php } ?>    
+        <!-- <video style="object-fit: cover" width="100%" autoplay muted>
+                <source src="{{ asset('assets/upload/video/mov_bbb.mp4') }}" type="video/mp4">
+            </video>             -->
         </div>
-        <div id="statis" onclick="exitFullscreen();">
-            <div class="row">
+        <div id="statis" class="" onclick="exitFullscreen();">
+            <!-- <div class="row">
                 <div class="col-md-3">
                     <h5 id="time" style="color: white; text-align:center"></h5>
                 </div>
@@ -83,6 +153,73 @@
                                 echo $key." : ".$value; echo ' | ';} ?>
                             </h5>
                         </marquee>
+                    </div>
+                </div>
+            </div> -->
+            <div class="row text-left" style="color: white">
+                <div class="col-6" style="background-color: #576574">
+                    <div class="m-2 mr-auto">
+                        <h4>Saldo Infak: Rp 25.876.500,00 | Saldo Beras: 35 Kg</h4>
+                    </div>
+                </div>
+                <div class="col-6" style="background-color: #222f3e">
+                    <div class="m-2 mr-auto">
+                        <!-- <img width="25px" style="float:left;" src="{{ asset('assets/upload/image/instagram.png') }}"><h4 style="display:inline;">&nbsp;masjiddarulhusna</h4>
+                        <img width="25px" style="float:left;" src="{{ asset('assets/upload/image/facebook.png') }}"><h4 style="display:inline;">&nbsp;Masjid Darul Husna</h4> -->
+                        <div class = "container1">
+                            <div class = "image">
+                                <img width="25px" src="{{ asset('assets/upload/image/instagram.png') }}"> 
+                            </div>
+                            <div class = "title">
+                                <p>masjiddarulhusna</p>
+                            </div>
+                        </div>
+                        <div class = "container2">
+                            <div class = "image">
+                                <img width="25px" src="{{ asset('assets/upload/image/facebook.png') }}"> 
+                            </div>
+                            <div class = "title">
+                                <p>Masjid Darul Husna Warungboto</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row text-center" style="color: white">
+                <div class="col" style="background-color: #01a3a4">
+                    <div class="m-2 mr-auto">
+                        <h2>Imsyak</h2>
+                        <h1>04:20</h1>
+                    </div>
+                </div>
+                <div class="col" style="background-color: #2e86de">
+                    <div class="m-2 mr-auto">
+                        <h2>Subuh</h2>
+                        <h1>04:20</h1>
+                    </div>
+                </div>
+                <div class="col" style="background-color: #341f97">
+                    <div class="m-2 mr-auto">
+                        <h2>Dzuhur</h2>
+                        <h1>12:00</h1>
+                    </div>
+                </div>
+                <div class="col" style="background-color: #01a3a4">
+                    <div class="m-2 mr-auto">
+                        <h2>Ashar</h2>
+                        <h1>15:00</h1>
+                    </div>
+                </div>
+                <div class="col" style="background-color: #2e86de">
+                    <div class="m-2 mr-auto">
+                        <h2>Maghrib</h2>
+                        <h1>18:00</h1>
+                    </div>
+                </div>
+                <div class="col" style="background-color: #341f97">
+                    <div class="m-2 mr-auto">
+                        <h2>Isya</h2>
+                        <h1>19:00</h1>
                     </div>
                 </div>
             </div>
