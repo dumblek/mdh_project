@@ -37,14 +37,14 @@
         .slides {
             display: flex;
             scroll-snap-type: x mandatory;
-            height: 65%;
+            height: 66%;
             background-color: white;
         }
 
         .font {
+            font-family: 'Poppins', sans-serif;
             /* font-family: 'Roboto Slab'; */
             /* font-family: 'droidSans'; */
-            font-family: 'Poppins', sans-serif;
             /* font-family: 'Roboto', sans-serif; */
             /* font-family: 'Roboto Condensed', sans-serif; */
         }
@@ -64,18 +64,18 @@
 
         #statis {
             background-color: white;
-            /* height: 10%;
-            padding: 10px; */
+            height: 15%;
+            /*padding: 10px; */
         }
 
         #topslide {
             background-color: white;
-            /* height: 15%; */
+            height: 14%;
         }
 
-        .img-slide {
+        /* .img-slide {
             max-width: 75%;
-        }
+        } */
 
         .container1 {
             float:left;
@@ -105,33 +105,40 @@
     <div id="fullscreen" class="font">
         <div id="topslide" class="text-center">
             <div class="row text-center" style="color: black; background-color: white">
-                    <div class="col" style="background-color: white;">
-                        <div class="m-3 mr-auto text-left">
-                            <h2>Sabtu,</h2>
-                            <h5>25 September 2021 / 10 Dzulhijah 1443H</h5>
-                        </div>
-                    </div>
-                    <div class="col" style="background-color: white;">
+                    <div style="width: 11%; background-color: white;">
                         <div class="logo m-3 mr-auto">
-                            <img src="{{ asset('assets/upload/image/'.$site_config->logo) }}" alt="{{ $site_config->namaweb }}" style="max-height: 80px; width: auto;"></a>
+                            <img src="{{ asset('assets/upload/image/thumbs/logo-mdh.png') }}" alt="{{ $site_config->namaweb }}" style="max-height: 80px; width: auto;"></a>
                         </div>
                     </div>
-                    <div class="col" style="background-color: white;">
-                        <div class="mt-4 mr-auto">
-                            <h1 style="font-size:60px">12:52:34</h1>
+                    <div style="width: 63%; background-color: white;">
+                        <div class="m-3 mr-auto text-left">
+                            <h1>Masjid Darul Husna Warungboto</h1>
+                            <h5>Jl. Veteran No.144, Umbulharjo, Yogyakarta</h5>
                         </div>
                     </div>
-                </div>
+                    <div style="width: 26%; background-color: #feca57;">
+                        <div class="mt-3 mr-auto">
+                            <h1 style="font-size:40px">12:52:34</h1>
+                            <h5>Senin, 04 Oktober 2021</h5>
+                        </div>
+                    </div>
+            </div>
+            
         </div>
         <div class="slides" id="slideshow">
             <?php
                 foreach($program as $program) {
             ?>
-                    <div class="text-center">
-                        <img style="object-fit: cover" width="100%" src="{{ asset('assets/upload/image/'.$program->gambar) }}" alt="{{ $title }}" class="">
+                    <div>
+                        <img style="object-fit: cover" height="100%;" src="{{ asset('assets/upload/image/'.$program->gambar) }}">
+                        <div class="" style="position: absolute; top: 65%; left: 3%;font-size: 18px;">
+                            <h1 style="color: white; text-shadow: 2px 2px 5px black;">{{ $program->judul_berita }}</h1>
+                            <p style="color: white; text-align: left; text-shadow: 2px 2px 5px black;">{{ strip_tags($program->keywords) }}</p>
+                        </div>
                     </div>
-            <?php } ?>    
-        <!-- <video style="object-fit: cover" width="100%" autoplay muted>
+            <?php } ?>
+            
+        <!-- <video style="object-fit: cover" height="190%" autoplay muted>
                 <source src="{{ asset('assets/upload/video/mov_bbb.mp4') }}" type="video/mp4">
             </video>             -->
         </div>
