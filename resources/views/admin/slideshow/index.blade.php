@@ -103,23 +103,26 @@
 </head>
 <body>
     <div id="fullscreen" class="font">
-        <div id="topslide" class="text-center">
+        <div id="topslide" class="text-center" style="z-index: 1; position: relative;">
             <div class="row text-center" style="color: black; background-color: white">
-                    <div style="width: 11%; background-color: white;">
-                        <div class="logo m-3 mr-auto">
-                            <img src="{{ asset('assets/upload/image/thumbs/logo-mdh.png') }}" alt="{{ $site_config->namaweb }}" style="max-height: 80px; width: auto;"></a>
+                    <!-- <div style="width: 11%; background-color: white;"> -->
+                    <div class="col-2" style="background-color: white; text-align: right;">
+                        <div class="mt-3 mb-3">
+                            <img src="{{ asset('assets/upload/image/logo.png') }}" alt="{{ $site_config->namaweb }}" style="max-height: 80px; width: auto;">
                         </div>
                     </div>
-                    <div style="width: 63%; background-color: white;">
-                        <div class="m-3 mr-auto text-left">
-                            <h1>Masjid Darul Husna Warungboto</h1>
-                            <h5>Jl. Veteran No.144, Umbulharjo, Yogyakarta</h5>
+                    <!-- <div style="width: 63%; background-color: white;"> -->
+                    <div class="col-7" style="background-color: white;">
+                        <div class="mt-3 mb-3 mr-auto text-left">
+                            <h1><b>Masjid Darul Husna Warungboto</b></h1>
+                            <h5>Jl. Veteran No. 148, Warungboto, Umbulharjo, Yogyakarta</h5>
                         </div>
                     </div>
-                    <div style="width: 26%; background-color: #feca57;">
-                        <div class="mt-3 mr-auto">
-                            <h1 style="font-size:40px">12:52:34</h1>
-                            <h5>Senin, 04 Oktober 2021</h5>
+                    <!-- <div style="width: 26%; background-color: #feca57;"> -->
+                    <div class="col-3" style="background-color: #10ac84;">
+                        <div class="mt-3 mr-auto" style="color: white;">
+                            <h1><b style="font-size:40px" id="time"></b></h1>
+                            <h4 id="date"></h4>
                         </div>
                     </div>
             </div>
@@ -130,8 +133,8 @@
                 foreach($program as $program) {
             ?>
                     <div>
-                        <img style="object-fit: cover" height="100%;" src="{{ asset('assets/upload/image/'.$program->gambar) }}">
-                        <div class="" style="position: absolute; top: 65%; left: 3%;font-size: 18px;">
+                        <img style="object-fit: cover;" width="100%;" src="{{ asset('assets/upload/image/'.$program->gambar) }}">
+                        <div class="" style="position: absolute; top: 65%; left: 4%;font-size: 20px;">
                             <h1 style="color: white; text-shadow: 2px 2px 5px black;">{{ $program->judul_berita }}</h1>
                             <p style="color: white; text-align: left; text-shadow: 2px 2px 5px black;">{{ strip_tags($program->keywords) }}</p>
                         </div>
@@ -143,36 +146,14 @@
             </video>             -->
         </div>
         <div id="statis" class="" onclick="exitFullscreen();">
-            <!-- <div class="row">
-                <div class="col-md-3">
-                    <h5 id="time" style="color: white; text-align:center"></h5>
-                </div>
-                <div class="col-md-3">
-                    <h5 style="color: white; text-align:left">Saldo Akhir : <?php echo $saldo_keuangan; ?></h5>
-                    <h5 style="color: white; text-align:left">Saldo Beras : <?php echo $saldo_beras; ?> Kg</h5>
-                </div>
-                <div class="col-md-6">
-                    <div class="d-flex">
-                        <marquee class="" scrollamount="2" behavior="alternate">
-                            <h5 style="color: white;">
-                            <?php
-                                foreach($jadwal_solat as $key => $value) {
-                                echo $key." : ".$value; echo ' | ';} ?>
-                            </h5>
-                        </marquee>
-                    </div>
-                </div>
-            </div> -->
             <div class="row text-left" style="color: white">
-                <div class="col-6" style="background-color: #576574">
-                    <div class="m-2 mr-auto">
-                        <h4>Saldo Infak: Rp 25.876.500,00 | Saldo Beras: 35 Kg</h4>
+                <div class="col-6" style="background-color: #576574;">
+                    <div class="mt-2 mb-2 mr-auto" style="text-align: center;">
+                        <h4>Saldo Infak: <b style="color: #feca57;">{{ $saldo_keuangan }}</b> | Saldo Beras: <b style="color: #feca57;">{{ $saldo_beras }} Kg</b></h4>
                     </div>
                 </div>
                 <div class="col-6" style="background-color: #222f3e">
                     <div class="m-2 mr-auto">
-                        <!-- <img width="25px" style="float:left;" src="{{ asset('assets/upload/image/instagram.png') }}"><h4 style="display:inline;">&nbsp;masjiddarulhusna</h4>
-                        <img width="25px" style="float:left;" src="{{ asset('assets/upload/image/facebook.png') }}"><h4 style="display:inline;">&nbsp;Masjid Darul Husna</h4> -->
                         <div class = "container1">
                             <div class = "image">
                                 <img width="25px" src="{{ asset('assets/upload/image/instagram.png') }}"> 
@@ -196,37 +177,37 @@
                 <div class="col" style="background-color: #01a3a4">
                     <div class="m-2 mr-auto">
                         <h2>Imsyak</h2>
-                        <h1>04:20</h1>
+                        <h1><b>{{ $jadwal_solat["Imsak"] }}</b></h1>
                     </div>
                 </div>
                 <div class="col" style="background-color: #2e86de">
                     <div class="m-2 mr-auto">
                         <h2>Subuh</h2>
-                        <h1>04:20</h1>
+                        <h1><b>{{ $jadwal_solat["Fajr"] }}</b></h1>
                     </div>
                 </div>
                 <div class="col" style="background-color: #341f97">
                     <div class="m-2 mr-auto">
                         <h2>Dzuhur</h2>
-                        <h1>12:00</h1>
+                        <h1><b>{{ $jadwal_solat["Dhuhr"] }}</b></h1>
                     </div>
                 </div>
                 <div class="col" style="background-color: #01a3a4">
                     <div class="m-2 mr-auto">
                         <h2>Ashar</h2>
-                        <h1>15:00</h1>
+                        <h1><b>{{ $jadwal_solat["Asr"] }}</b></h1>
                     </div>
                 </div>
                 <div class="col" style="background-color: #2e86de">
                     <div class="m-2 mr-auto">
                         <h2>Maghrib</h2>
-                        <h1>18:00</h1>
+                        <h1><b>{{ $jadwal_solat["Maghrib"] }}</b></h1>
                     </div>
                 </div>
                 <div class="col" style="background-color: #341f97">
                     <div class="m-2 mr-auto">
                         <h2>Isya</h2>
-                        <h1>19:00</h1>
+                        <h1><b>{{ $jadwal_solat["Isha"] }}</b></h1>
                     </div>
                 </div>
             </div>
@@ -266,23 +247,31 @@
         
         function updateTime(){
             MyDate = new Date(Date(timestamp));
+            formatedTime=format_time(MyDate);
+            $('#time').html(formatedTime);
             formatedDate=format_date(MyDate);
-            $('#time').html(formatedDate);
+            $('#date').html(formatedDate);
             timestamp++;
         }
         $(function(){
             setInterval(updateTime, 1000);
         });
 
+        function format_time(d) {
+            nhour=d.getHours(),nmin=d.getMinutes(),nsec=d.getSeconds();
+            if(nmin<=9) nmin="0"+nmin;
+            if(nsec<=9) nsec="0"+nsec;
+
+            return ""+nhour+":"+nmin+":"+nsec+""
+        }
+
         function format_date(d) {
             tday=new Array("Ahad","Senin","Selasa","Rabu","Kamis","Jumat","Sabtu");
             tmonth=new Array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember");
             
-            var nday=d.getDay(),nmonth=d.getMonth(),ndate=d.getDate(),nyear=d.getFullYear(),nhour=d.getHours(),nmin=d.getMinutes(),nsec=d.getSeconds();
-            if(nmin<=9) nmin="0"+nmin;
-            if(nsec<=9) nsec="0"+nsec;
+            var nday=d.getDay(),nmonth=d.getMonth(),ndate=d.getDate(),nyear=d.getFullYear();
             
-            return ""+tday[nday]+", "+ndate+" "+tmonth[nmonth]+" "+nyear+"</br>"+nhour+":"+nmin+":"+nsec+" WIB"+""
+            return ""+tday[nday]+", "+ndate+" "+tmonth[nmonth]+" "+nyear+""
         }
     </script>
 </body>

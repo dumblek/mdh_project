@@ -67,6 +67,7 @@ class Home extends Controller
     {
         $site_config   = DB::table('konfigurasi')->first();
         //default range tanggal sebulan sebelum hari ini
+        date_default_timezone_set('Asia/Jakarta');
         $default_end = now()->format('Y-m-d');
         $default_start = date("Y-m-d", strtotime("$default_end -30 day"));
         //get data keuangan

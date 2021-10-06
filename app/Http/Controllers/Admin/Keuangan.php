@@ -12,8 +12,9 @@ class Keuangan extends Controller
     {
         if(Session()->get('username')=="") { return redirect('login')->with(['warning' => 'Mohon maaf, Anda belum login']);}
         //default range tanggal seminggu sebelum hari ini
+        date_default_timezone_set('Asia/Jakarta');
         $default_end = now()->format('Y-m-d');
-        $default_start = date("Y-m-d", strtotime("$default_end -7 day"));
+        $default_start = date("Y-m-d", strtotime("$default_end -14 day"));
         //get data
         $keuangan_all = Keuangan_model::orderBy('tanggal', 'asc')->get();
         $keuangan = $keuangan_all->whereBetween('tanggal', [$default_start, $default_end]);
