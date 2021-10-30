@@ -41,16 +41,9 @@ class Dasbor extends Controller
         }
         $site_config   = DB::table('konfigurasi')->first();
     	$mysite = new Konfigurasi_model;
-        $keuangan = new Keuangan_model;
-        $saldo_keuangan = $keuangan->saldo;
-        $beras = new Beras_model;
-        $saldo_beras = $beras->saldo;
 		$site 	= $mysite->listing();
         $model 	= new Berita_model;
 		$program = $model->program();
-        $response = Http::get('https://api.pray.zone/v2/times/today.json?city=yogyakarta');
-        $jadwal_solat = $response->json()["results"]["datetime"][0]["times"];
-        $today = $response->json()["results"]["datetime"][0]["date"];
 
         $data = array(  'title'          => 'Berita dan Update',
                         'deskripsi'      => 'Berita dan Update',
@@ -58,12 +51,24 @@ class Dasbor extends Controller
                         'site'		     => $site,
                         'program'	     => $program,
                         'site_config'    => $site_config,
-                        'saldo_keuangan' => $saldo_keuangan,
+                    );
+
+        return view('admin/slideshow/index',$data);
+    }
+
+    public function saldo(){
+        $keuangan = new Keuangan_model;
+        $saldo_keuangan = $keuangan->saldo;
+        $beras = new Beras_model;
+        $saldo_beras = $beras->saldo . ' Kg';
+        $response = Http::get('https://api.pray.zone/v2/times/today.json?city=yogyakarta');
+        $jadwal_solat = $response->json()["results"]["datetime"][0]["times"];
+        $today = $response->json()["results"]["datetime"][0]["date"];
+        $data = array(  'saldo_keuangan' => $saldo_keuangan,
                         'saldo_beras'    => $saldo_beras,
                         'jadwal_solat'   => $jadwal_solat,
                         'today'          => $today
                     );
-
-        return view('admin/slideshow/index',$data);
+        echo json_encode($data);
     }
 }

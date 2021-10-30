@@ -149,7 +149,7 @@
             <div class="row text-left" style="color: white">
                 <div class="col-6" style="background-color: #576574;">
                     <div class="mt-2 mb-2 mr-auto" style="text-align: center;">
-                        <h4>Saldo Infak: <b style="color: #feca57;">{{ $saldo_keuangan }}</b> | Saldo Beras: <b style="color: #feca57;">{{ $saldo_beras }} Kg</b></h4>
+                        <h4>Saldo Infak: <b style="color: #feca57;" id="infaq"></b> | Saldo Beras: <b style="color: #feca57;" id="beras"></b></h4>
                     </div>
                 </div>
                 <div class="col-6" style="background-color: #222f3e">
@@ -177,37 +177,37 @@
                 <div class="col" style="background-color: #01a3a4">
                     <div class="m-2 mr-auto">
                         <h2>Imsyak</h2>
-                        <h1><b>{{ $jadwal_solat["Imsak"] }}</b></h1>
+                        <h1><b id="Imsak"></b></h1>
                     </div>
                 </div>
                 <div class="col" style="background-color: #2e86de">
                     <div class="m-2 mr-auto">
                         <h2>Subuh</h2>
-                        <h1><b>{{ $jadwal_solat["Fajr"] }}</b></h1>
+                        <h1><b id="Fajr"></b></h1>
                     </div>
                 </div>
                 <div class="col" style="background-color: #341f97">
                     <div class="m-2 mr-auto">
                         <h2>Dzuhur</h2>
-                        <h1><b>{{ $jadwal_solat["Dhuhr"] }}</b></h1>
+                        <h1><b id="Dhuhr"></b></h1>
                     </div>
                 </div>
                 <div class="col" style="background-color: #01a3a4">
                     <div class="m-2 mr-auto">
                         <h2>Ashar</h2>
-                        <h1><b>{{ $jadwal_solat["Asr"] }}</b></h1>
+                        <h1><b id="Asr"></b></h1>
                     </div>
                 </div>
                 <div class="col" style="background-color: #2e86de">
                     <div class="m-2 mr-auto">
                         <h2>Maghrib</h2>
-                        <h1><b>{{ $jadwal_solat["Maghrib"] }}</b></h1>
+                        <h1><b id="Sunset"></b></h1>
                     </div>
                 </div>
                 <div class="col" style="background-color: #341f97">
                     <div class="m-2 mr-auto">
                         <h2>Isya</h2>
-                        <h1><b>{{ $jadwal_solat["Isha"] }}</b></h1>
+                        <h1><b id="Isha"></b></h1>
                     </div>
                 </div>
             </div>
@@ -215,6 +215,7 @@
     </div>
     <button onclick="openFullscreen();">Fullscreen Mode</button>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script>
         $("#slideshow > div:gt(0)").hide();
 
@@ -273,6 +274,31 @@
             
             return ""+tday[nday]+", "+ndate+" "+tmonth[nmonth]+" "+nyear+""
         }
+
+        function updateSaldo(){
+            $.ajax({
+            url: "saldo",
+            })
+            .done(function( data ) {
+                let result= $.parseJSON(data);
+                let today = result.today.gregorian
+                let duhr = result.jadwal_solat["Dhuhr"];
+                let asr = result.jadwal_solat["Asr"];
+                let isha = result.jadwal_solat["Isha"];
+                $('#infaq').html(result.saldo_keuangan);
+                $('#beras').html(result.saldo_beras);
+                $('#Imsak').html(result.jadwal_solat["Imsak"]);
+                $('#Fajr').html(result.jadwal_solat["Fajr"]);
+                $('#Dhuhr').html(moment(`${today} ${duhr}`).add(1, 'm').format('HH:mm'));
+                $('#Asr').html(moment(`${today} ${asr}`).add(1, 'm').format('HH:mm'));
+                $('#Sunset').html(result.jadwal_solat["Sunset"]);
+                $('#Isha').html(moment(`${today} ${isha}`).add(5, 'm').format('HH:mm'));
+            });
+        }
+        $(function(){
+            setInterval(updateSaldo, 1000);
+        });
+        
     </script>
 </body>
 </html>
