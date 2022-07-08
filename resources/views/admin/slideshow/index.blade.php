@@ -38,7 +38,11 @@
             display: flex;
             scroll-snap-type: x mandatory;
             height: 66%;
-            background-color: white;
+            background-color: #254d24;
+        }
+
+        .body {
+            background-color: #112b13;
         }
 
         .font {
@@ -101,7 +105,7 @@
         
     </style>
 </head>
-<body>
+<body class="body">
     <div id="fullscreen" class="font">
         <div id="topslide" class="text-center" style="z-index: 1; position: relative;">
             <div class="row text-center" style="color: black; background-color: white">
@@ -118,8 +122,8 @@
                             <h5>Jl. Veteran No. 148, Warungboto, Umbulharjo, Yogyakarta</h5>
                         </div>
                     </div>
-                    <!-- <div style="width: 26%; background-color: #feca57;"> -->
-                    <div class="col-3" style="background-color: #10ac84;">
+                    <!-- <div style="width: 26%; background-color: #10ac84;"> -->
+                    <div class="col-3" style="background-color: #254d24;">
                         <div class="mt-3 mr-auto" style="color: white;">
                             <h1><b style="font-size:40px" id="time"></b></h1>
                             <h4 id="date"></h4>
@@ -129,7 +133,7 @@
             
         </div>
         <div class="slides" id="slideshow">
-            <?php
+            <!-- <?php
                 foreach($program as $program) {
             ?>
                     <div>
@@ -139,17 +143,17 @@
                             <p style="color: white; text-align: left; text-shadow: 2px 2px 5px black;">{{ strip_tags($program->keywords) }}</p>
                         </div>
                     </div>
-            <?php } ?>
-            
-        <!-- <video style="object-fit: cover" height="190%" autoplay muted>
-                <source src="{{ asset('assets/upload/video/mov_bbb.mp4') }}" type="video/mp4">
-            </video>             -->
+            <?php } ?> -->
+            <video style="object-fit: cover" width=100% height=100% autoplay muted loop>
+                <source src="{{ asset('assets/upload/video/treaser.mp4') }}" type="video/mp4">
+            </video>          
         </div>
         <div id="statis" class="" onclick="exitFullscreen();">
             <div class="row text-left" style="color: white">
                 <div class="col-6" style="background-color: #576574;">
                     <div class="mt-2 mb-2 mr-auto" style="text-align: center;">
-                        <h4>Saldo Infak: <b style="color: #feca57;" id="infaq"></b> | Saldo Beras: <b style="color: #feca57;" id="beras"></b></h4>
+                        <!-- <h4>Saldo Infak: <b style="color: #feca57;" id="infaq"></b> | Saldo Beras: <b style="color: #feca57;" id="beras"></b></h4> -->
+                        <h4>Saldo Infak Ramadhan: <b style="color: #feca57;" id="infaq"></b></h4>
                     </div>
                 </div>
                 <div class="col-6" style="background-color: #222f3e">
@@ -180,13 +184,13 @@
                         <h1><b id="Imsak"></b></h1>
                     </div>
                 </div>
-                <div class="col" style="background-color: #2e86de">
+                <div class="col" style="background-color: #50944e">
                     <div class="m-2 mr-auto">
                         <h2>Subuh</h2>
                         <h1><b id="Fajr"></b></h1>
                     </div>
                 </div>
-                <div class="col" style="background-color: #341f97">
+                <div class="col" style="background-color: #254d24">
                     <div class="m-2 mr-auto">
                         <h2>Dzuhur</h2>
                         <h1><b id="Dhuhr"></b></h1>
@@ -198,13 +202,13 @@
                         <h1><b id="Asr"></b></h1>
                     </div>
                 </div>
-                <div class="col" style="background-color: #2e86de">
+                <div class="col" style="background-color: #50944e">
                     <div class="m-2 mr-auto">
                         <h2>Maghrib</h2>
                         <h1><b id="Sunset"></b></h1>
                     </div>
                 </div>
-                <div class="col" style="background-color: #341f97">
+                <div class="col" style="background-color: #254d24">
                     <div class="m-2 mr-auto">
                         <h2>Isya</h2>
                         <h1><b id="Isha"></b></h1>
@@ -213,7 +217,7 @@
             </div>
         </div>
     </div>
-    <button onclick="openFullscreen();">Fullscreen Mode</button>
+    <!-- <button onclick="openFullscreen();">Fullscreen Mode</button> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script>
@@ -285,7 +289,8 @@
                 let duhr = result.jadwal_solat["Dhuhr"];
                 let asr = result.jadwal_solat["Asr"];
                 let isha = result.jadwal_solat["Isha"];
-                $('#infaq').html(result.saldo_keuangan);
+                // $('#infaq').html(result.saldo_keuangan);
+                $('#infaq').html(result.saldo_ramadhan);
                 $('#beras').html(result.saldo_beras);
                 $('#Imsak').html(result.jadwal_solat["Imsak"]);
                 $('#Fajr').html(result.jadwal_solat["Fajr"]);

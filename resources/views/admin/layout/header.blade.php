@@ -15,6 +15,9 @@
       <li class="nav-item d-none d-sm-inline-block">
         <a href="{{ asset('admin/dasbor/slideshow') }}" target="_blank" class="nav-link"><i class="fa fa-laptop"></i> Slide Show</a>
       </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="{{ asset('admin/dasbor/qurban') }}" target="_blank" class="nav-link"><i class="fa fa-laptop"></i> Qurban</a>
+      </li>
     </ul>
 
     <!-- Right navbar links -->

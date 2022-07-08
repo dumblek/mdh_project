@@ -79,6 +79,8 @@ Route::get('admin/dasbor', 'App\Http\Controllers\Admin\Dasbor@index');
 Route::get('admin/dasbor/konfigurasi', 'App\Http\Controllers\Admin\Dasbor@konfigurasi');
 Route::get('admin/dasbor/slideshow', 'App\Http\Controllers\Admin\Dasbor@slideshow');
 Route::get('admin/dasbor/saldo', 'App\Http\Controllers\Admin\Dasbor@saldo');
+Route::get('admin/dasbor/qurban', 'App\Http\Controllers\Admin\Dasbor@qurban');
+Route::get('admin/dasbor/data_qurban', 'App\Http\Controllers\Admin\Dasbor@data_qurban');
 // pemesanan
 Route::get('admin/pemesanan', 'App\Http\Controllers\Admin\Pemesanan@index');
 Route::get('admin/pemesanan/tambah', 'App\Http\Controllers\Admin\Pemesanan@tambah');
@@ -317,5 +319,7 @@ Route::get('admin/download/delete/{par1}', 'App\Http\Controllers\Admin\Download@
 Route::post('admin/download/tambah_proses', 'App\Http\Controllers\Admin\Download@tambah_proses');
 Route::post('admin/download/edit_proses', 'App\Http\Controllers\Admin\Download@edit_proses');
 Route::post('admin/download/proses', 'App\Http\Controllers\Admin\Download@proses');
+// Qurban entry
+Route::get('admin/qurban_entry', 'App\Http\Controllers\Admin\Qurban_entry@index');
 
 /* END BACK END*/
