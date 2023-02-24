@@ -476,8 +476,8 @@ jQuery(document).ready(function($) {
 		var scroll = $(window).scrollTop();
 		if (scroll >= 40){
 			$("#myNav").addClass("fixed-top")
-			$("#myNav").css("background-color", "rgba(255,255,255,0.8)")
-			$(".dropdown-menu").css("background-color", "rgba(255,255,255,0.8)")
+			$("#myNav").css("background-color", "rgba(255,255,255,1)")
+			$(".dropdown-menu").css("background-color", "rgba(255,255,255,1)")
 		} else {
 			$("#myNav").removeClass("fixed-top")
 			$(".dropdown-menu").css("background-color", "rgb(255,255,255)")

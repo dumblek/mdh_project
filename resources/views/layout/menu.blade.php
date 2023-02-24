@@ -25,6 +25,7 @@ $nav_materi  = $myprofil->nav_materi();
                      <li><a href="{{ asset('saldo') }}"><i class="fa fa-angle-double-right" aria-hidden="true"></i> Informasi Saldo</a></li>
                   </ul>
                </li>
+               <li class="nav-item"> <a class="nav-link" href="{{ asset('donasi') }}">Donasi</a> </li>
                <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Berita &amp; Artikel <span class="pull-right"><i class="fas fa-caret-down"></i></span></a>
                   <ul class="dropdown-menu">
@@ -41,7 +42,7 @@ $nav_materi  = $myprofil->nav_materi();
                      <?php } ?>
                   </ul>
                </li>
-               <li class="nav-item"> <a class="nav-link" href="{{ asset('agenda') }}">Agenda</a> </li>
+               <!-- <li class="nav-item"> <a class="nav-link" href="{{ asset('agenda') }}">Agenda</a> </li> -->
                <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Galeri <span class="pull-right"><i class="fas fa-caret-down"></i></span></a>
                   <ul class="dropdown-menu" >            

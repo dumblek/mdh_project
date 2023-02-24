@@ -71,6 +71,47 @@
 
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-calendar"></i>
+              <p>Donasi<i class="fas fa-angle-left right"></i></p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item"><a href="{{ asset('admin/donasi') }}" class="nav-link"><i class="fas fa-newspaper nav-icon"></i><p>Data Donasi</p></a>
+              </li>
+              <li class="nav-item"><a href="{{ asset('admin/donasi/tambah') }}" class="nav-link"><i class="fa fa-plus nav-icon"></i><p>Tambah Donasi</p></a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-calendar"></i>
+              <p>Donatur<i class="fas fa-angle-left right"></i></p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item"><a href="{{ asset('admin/donatur') }}" class="nav-link"><i class="fas fa-newspaper nav-icon"></i><p>Data Donatur</p></a>
+              </li>
+              <li class="nav-item"><a href="{{ asset('admin/donatur/tambah') }}" class="nav-link"><i class="fa fa-plus nav-icon"></i><p>Tambah Donatur</p></a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-image"></i>
+              <p>Galeri Prisma<i class="fas fa-angle-left right"></i></p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item"><a href="{{ asset('admin/galeri-prisma') }}" class="nav-link"><i class="fas fa-newspaper nav-icon"></i><p>Data Galeri</p></a>
+              </li>
+              <li class="nav-item"><a href="{{ asset('admin/galeri-prisma/tambah') }}" class="nav-link"><i class="fa fa-plus nav-icon"></i><p>Tambah Foto</p></a>
+              </li>
+              <li class="nav-item"><a href="{{ asset('admin/kategori_galeri') }}" class="nav-link"><i class="fa fa-tags nav-icon"></i><p>Album</p></a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-image"></i>
               <p>Galeri Foto<i class="fas fa-angle-left right"></i></p>
             </a>

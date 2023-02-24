@@ -71,6 +71,12 @@ Route::get('proyek', 'App\Http\Controllers\Proyek@index');
 Route::get('proyek/kategori/{par1}', 'App\Http\Controllers\Proyek@kategori');
 Route::get('proyek/detail/{par1}', 'App\Http\Controllers\Proyek@detail');
 Route::get('proyek/cetak/{par1}', 'App\Http\Controllers\Proyek@cetak');
+// Donasi
+Route::get('donasi', 'App\Http\Controllers\Donasi@index');
+Route::get('donasi/read/{par1}', 'App\Http\Controllers\Donasi@read');
+Route::get('donasi/read/{par1}/donasi-sekarang', 'App\Http\Controllers\Donasi@donasi');
+Route::post('donasi/read/{par1}/donasi-sekarang/invoice', 'App\Http\Controllers\Donasi@tambah_invoice');
+Route::get('donasi/invoice/{par1}', 'App\Http\Controllers\Donasi@invoice');
 /* END FRONT END */
 /* BACK END */
 
@@ -257,6 +263,17 @@ Route::get('admin/galeri/delete/{par1}', 'App\Http\Controllers\Admin\Galeri@dele
 Route::post('admin/galeri/tambah_proses', 'App\Http\Controllers\Admin\Galeri@tambah_proses');
 Route::post('admin/galeri/edit_proses', 'App\Http\Controllers\Admin\Galeri@edit_proses');
 Route::post('admin/galeri/proses', 'App\Http\Controllers\Admin\Galeri@proses');
+// galeri prisma
+Route::get('admin/galeri-prisma', 'App\Http\Controllers\Admin\GaleriPrisma@index');
+Route::get('admin/galeri-prisma/cari', 'App\Http\Controllers\Admin\GaleriPrisma@cari');
+Route::get('admin/galeri-prisma/status_galeri/{par1}', 'App\Http\Controllers\Admin\GaleriPrisma@status_galeri');
+Route::get('admin/galeri-prisma/kategori/{par1}', 'App\Http\Controllers\Admin\GaleriPrisma@kategori');
+Route::get('admin/galeri-prisma/tambah', 'App\Http\Controllers\Admin\GaleriPrisma@tambah');
+Route::get('admin/galeri-prisma/edit/{par1}', 'App\Http\Controllers\Admin\GaleriPrisma@edit');
+Route::get('admin/galeri-prisma/delete/{par1}', 'App\Http\Controllers\Admin\GaleriPrisma@delete');
+Route::post('admin/galeri-prisma/tambah_proses', 'App\Http\Controllers\Admin\GaleriPrisma@tambah_proses');
+Route::post('admin/galeri-prisma/edit_proses', 'App\Http\Controllers\Admin\GaleriPrisma@edit_proses');
+Route::post('admin/galeri-prisma/proses', 'App\Http\Controllers\Admin\GaleriPrisma@proses');
 // staff
 Route::get('admin/staff', 'App\Http\Controllers\Admin\Staff@index');
 Route::get('admin/staff/cari', 'App\Http\Controllers\Admin\Staff@cari');
@@ -321,5 +338,30 @@ Route::post('admin/download/edit_proses', 'App\Http\Controllers\Admin\Download@e
 Route::post('admin/download/proses', 'App\Http\Controllers\Admin\Download@proses');
 // Qurban entry
 Route::get('admin/qurban_entry', 'App\Http\Controllers\Admin\Qurban_entry@index');
+// Donasi
+Route::get('admin/donasi', 'App\Http\Controllers\Admin\Donasi@index');
+Route::get('admin/donasi/cari', 'App\Http\Controllers\Admin\Donasi@cari');
+Route::get('admin/donasi/{par1}/status/{par2}', 'App\Http\Controllers\Admin\Donasi@status');
+Route::get('admin/donasi/kategori/{par1}', 'App\Http\Controllers\Admin\Donasi@kategori');
+Route::get('admin/donasi/jenis_agenda/{par1}', 'App\Http\Controllers\Admin\Donasi@jenis_agenda');
+Route::get('admin/donasi/author/{par1}', 'App\Http\Controllers\Admin\Donasi@author');
+Route::get('admin/donasi/tambah', 'App\Http\Controllers\Admin\Donasi@tambah');
+Route::get('admin/donasi/edit/{par1}', 'App\Http\Controllers\Admin\Donasi@edit');
+Route::get('admin/donasi/delete/{par1}', 'App\Http\Controllers\Admin\Donasi@delete');
+Route::post('admin/donasi/tambah_proses', 'App\Http\Controllers\Admin\Donasi@tambah_proses');
+Route::post('admin/donasi/edit_proses', 'App\Http\Controllers\Admin\Donasi@edit_proses');
+Route::post('admin/donasi/proses', 'App\Http\Controllers\Admin\Donasi@proses');
+Route::get('admin/donasi/add', 'App\Http\Controllers\Admin\Donasi@add');
 
+// Donatur
+Route::get('admin/donatur', 'App\Http\Controllers\Admin\Donatur@index');
+Route::get('admin/donatur/cari', 'App\Http\Controllers\Admin\Donatur@cari');
+Route::get('admin/donatur/tambah', 'App\Http\Controllers\Admin\Donatur@tambah');
+Route::get('admin/donatur/edit/{par1}', 'App\Http\Controllers\Admin\Donatur@edit');
+Route::get('admin/donatur/delete/{par1}', 'App\Http\Controllers\Admin\Donatur@delete');
+Route::post('admin/donatur/tambah_proses', 'App\Http\Controllers\Admin\Donatur@tambah_proses');
+Route::post('admin/donatur/edit_proses', 'App\Http\Controllers\Admin\Donatur@edit_proses');
+Route::post('admin/donatur/proses', 'App\Http\Controllers\Admin\Donatur@proses');
+Route::get('admin/donatur/add', 'App\Http\Controllers\Admin\Donatur@add');
+Route::get('admin/donatur/{par1}/status/{par2}', 'App\Http\Controllers\Admin\Donatur@status');
 /* END BACK END*/

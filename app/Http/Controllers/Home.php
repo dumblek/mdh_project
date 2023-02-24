@@ -8,6 +8,7 @@ use App\Models\Berita_model;
 use App\Models\Keuangan_model;
 use App\Models\Beras_model;
 use App\Models\Agenda_model;
+use App\Models\Donasi_model;
 use PDF;
 
 class Home extends Controller
@@ -24,6 +25,9 @@ class Home extends Controller
         $artikels        = $news->artikels();
         $event          = new Agenda_model();
         $agenda         = $event->semua();
+        $donasi         = new Donasi_model();
+        $donasi         = $donasi->listing();
+        // dd($donasi);
 
         $data = array(  'title'         => $site_config->namaweb.' - '.$site_config->tagline,
                         'deskripsi'     => $site_config->namaweb.' - '.$site_config->tagline,
@@ -33,6 +37,7 @@ class Home extends Controller
                         'berita'        => $berita,
                         'artikels'      => $artikels,
                         'agenda'        => $agenda,
+                        'donasi'        => $donasi,
                         'layanan'       => $layanan,
                         'video'         => $video,
                         'content'       => 'home/index'
