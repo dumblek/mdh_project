@@ -1,6 +1,22 @@
 <?php 
 $bg   = DB::table('heading')->where('halaman','Berita')->orderBy('id_heading','DESC')->first();
  ?>
+
+<script>
+  @if ($errors->any())
+  toastr.options =
+  {
+    "closeButton" : true,
+    "progressBar" : true
+  }
+  	@foreach ($errors->all() as $error)
+        toastr.warning("{{ $error }}");
+	@endforeach
+  @endif
+</script>
+
+<div id="lala-alert-container"><div id="lala-alert-wrapper">
+	<div class="animation-target lala-alert alert-warning  fade-out">Maaf, Silahkan lengkapi Nama anda!<span class=" close-alert-x glyphicon glyphicon-remove"></span></div></div></div>
 <!--Inner Header Start-->
 <!-- <section class="wf100 p80 inner-header" style="background-image: url('{{ asset('assets/upload/image/'.$bg->gambar) }}'); background-position: bottom center;">
    <div class="container">
@@ -31,11 +47,11 @@ $bg   = DB::table('heading')->where('halaman','Berita')->orderBy('id_heading','D
          <!-- <span class="d_date"><span>12&nbsp;hari&nbsp;lagi</span></span> -->
       </div>
    </div>
-   <div class="section-button">
+   <!-- <div class="section-button">
       <a href="{{ asset('donasi/read/'.$read->slug_donasi.'/donasi-sekarang') }}">
          <button class="donation_button_now" style="background:#dc2f6a;border-color:#dc2f6a">Donasi Sekarang!</button>
       </a>
-   </div>
+   </div> -->
 </div>
 <!--Inner Header End--> 
 <!-- Body Donasi -->
@@ -123,7 +139,7 @@ $bg   = DB::table('heading')->where('halaman','Berita')->orderBy('id_heading','D
 
 <div class="section-box">
 	<span class="">
-		<button type="submit" name="submit" class="donation_button_now" style="background:;border-color:">Donasi <span id="nominal_value">Rp 25rb</span> 
+		<button type="submit" name="submit" class="donation_button_now" style="background:;border-color:">Donasi <span id="nominal_value"></span> 
 			<div class="donasi-loading loading-hide"></div>
 		</button>
 		<!-- <a href="{{ asset('donasi/read/'.$read->slug_donasi.'/donasi-sekarang/invoice') }}">

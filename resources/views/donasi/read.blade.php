@@ -42,10 +42,9 @@ $bg   = DB::table('heading')->where('halaman','Berita')->orderBy('id_heading','D
          <div class="tab-content">
             <div id="tab-1" class="tab-pane active"> 
                <div class="col-md-10">
-                  <div class="donasiaja-readmore" data-readmore="" aria-expanded="false" id="rmjs-1" style="max-height: none; height: 200px;">
+                  <div class="donasiaja-readmore" data-readmore="" aria-expanded="false" id="rmjs-1" style="max-height: none;">
                      <?php echo $read->keterangan ?>
                   </div>
-                  <!-- <a href="#" class="readmore" data-readmore-toggle="rmjs-1" aria-controls="rmjs-1">Baca selengkapnya ▾</a> -->
                </div>
             </div> 
             <div id="tab-3" class="tab-pane">
@@ -60,10 +59,6 @@ $bg   = DB::table('heading')->where('halaman','Berita')->orderBy('id_heading','D
                               <div class="donation_total">Berdonasi sebesar <b><?php  echo "Rp " . number_format($donatur->nominal,0,',','.') ?></b></div>
                            </div>
                         </div>
-                        <!-- <div id="box_btn_le35" class="donation_button">
-                                                      <div class="loadmore_info"></div>
-                           <button id="le35" class="load_data_donatur" data-id="djasxycg6h2" data-count="2" data-fullanonim="true" data-anonim="Orang Baik">Loadmore</button>
-                                                   </div> -->
                   </div>
                   <?php }; ?>
                   <!-- end donation -->
