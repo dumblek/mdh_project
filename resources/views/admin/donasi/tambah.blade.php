@@ -54,6 +54,13 @@
 </div>
 
 <div class="row form-group">
+  <label class="col-md-3 text-right">Kode Uniq</label>
+  <div class="col-md-6">
+  <input type="number" name="kode_uniq" class="form-control" placeholder="Kode Uniq" value="{{ old('kode_uniq') }}" required>
+  </div>
+</div>
+
+<div class="row form-group">
   <label class="col-md-3 text-right">Isi dan Keterangan Lengkap</label> 
   <div class="col-md-9">
     <textarea name="isi" class="form-control" id="kontenku" placeholder="Isi agenda">{{ old('isi') }}</textarea>

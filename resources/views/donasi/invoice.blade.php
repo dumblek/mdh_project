@@ -41,7 +41,7 @@ $site_config = DB::table('konfigurasi')->first();
 	</div>
 	<br>
 	
-	<p class="typ_text" style="text-align: left;margin-bottom: 40px;font-size: 13px;">Setelah transfer harap konfirmasi ke nomor dibawah ini. Jazakumullah khairan katsiran...</p>
+	<p class="typ_text" style="text-align: left;margin-bottom: 40px;font-size: 13px;">Harap transfer sampai dengan tiga digit nominal terakhir. Setelah transfer harap konfirmasi ke nomor dibawah ini. Jazakumullah khairan katsiran...</p>
 	
 	<a href="https://api.whatsapp.com/send?phone={{ $site_config->telepon }}&text=Asalamualaikum Admin, saya telah berdonasi sebesar <?php  echo "Rp " . number_format($donatur->nominal,0,',','.') ?>. Untuk program {{ $read->judul }}">
 		<div class="box-card no_rekening">

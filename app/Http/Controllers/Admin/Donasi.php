@@ -218,25 +218,27 @@ class Donasi extends Controller
             DB::table('donasi')->insert([
                 'user_id'           => Session()->get('id_user'),
                 'slug_donasi'       => $slug_donasi,
-                'judul'      => $request->judul,
-                'keterangan'               => $request->isi,
-                'status'     => 'open',
-                'target'     => $request->target,
+                'judul'             => $request->judul,
+                'keterangan'        => $request->isi,
+                'status'            => 'open',
+                'target'            => $request->target,
                 'tanggal_mulai'     => tanggal('tanggal_input',$request->tanggal_mulai),
                 'tanggal_selesai'   => tanggal('tanggal_input',$request->tanggal_selesai),
-                'gambar'            => $input['nama_file']
+                'gambar'            => $input['nama_file'],
+                'kode_uniq'         => $request->kode_uniq
             ]);
         }else{
             $slug_donasi = Str::slug($request->judul, '-');
             DB::table('donasi')->insert([
                 'user_id'           => Session()->get('id_user'),
                 'slug_donasi'       => $slug_donasi,
-                'judul'      => $request->judul,
-                'keterangan'               => $request->isi,
-                'status'     => 'open',
-                'target'     => $request->target,
+                'judul'             => $request->judul,
+                'keterangan'        => $request->isi,
+                'status'            => 'open',
+                'target'            => $request->target,
                 'tanggal_mulai'     => tanggal('tanggal_input',$request->tanggal_mulai),
-                'tanggal_selesai'   => tanggal('tanggal_input',$request->tanggal_selesai)
+                'tanggal_selesai'   => tanggal('tanggal_input',$request->tanggal_selesai),
+                'kode_uniq'         => $request->kode_uniq
             ]);
         }
         return redirect('admin/donasi')->with(['sukses' => 'Data telah ditambah']);
@@ -271,27 +273,29 @@ class Donasi extends Controller
             DB::table('donasi')->where('id',$request->id)->update([
                 'user_id'           => Session()->get('id_user'),
                 'slug_donasi'       => $slug_donasi,
-                'judul'      => $request->judul,
-                'keterangan'               => $request->isi,
-                'status'     => $request->status,
+                'judul'             => $request->judul,
+                'keterangan'        => $request->isi,
+                'status'            => $request->status,
                 'tanggal_mulai'     => tanggal('tanggal_input',$request->tanggal_mulai),
                 'tanggal_selesai'   => tanggal('tanggal_input',$request->tanggal_selesai),
-                'target'         => $request->target,
-                'tercapai'       => $request->tercapai,
-                'gambar'            => $input['nama_file']
+                'target'            => $request->target,
+                'tercapai'          => $request->tercapai,
+                'gambar'            => $input['nama_file'],
+                'kode_uniq'         => $request->kode_uniq
             ]);
         }else{
             $slug_donasi = Str::slug($request->judul, '-');
             DB::table('donasi')->where('id',$request->id)->update([
                 'user_id'           => Session()->get('id_user'),
                 'slug_donasi'       => $slug_donasi,
-                'judul'      => $request->judul,
-                'keterangan'               => $request->isi,
-                'status'     => $request->status,
+                'judul'             => $request->judul,
+                'keterangan'        => $request->isi,
+                'status'            => $request->status,
                 'tanggal_mulai'     => tanggal('tanggal_input',$request->tanggal_mulai),
                 'tanggal_selesai'   => tanggal('tanggal_input',$request->tanggal_selesai),
-                'target'         => $request->target,
-                'tercapai'       => $request->tercapai
+                'target'            => $request->target,
+                'tercapai'          => $request->tercapai,
+                'kode_uniq'         => $request->kode_uniq
             ]);
         }
         return redirect('admin/donasi')->with(['sukses' => 'Data telah diedit']);

@@ -55,6 +55,13 @@
 </div>
 
 <div class="row form-group">
+  <label class="col-md-3 text-right">Kode Uniq</label>
+  <div class="col-md-6">
+  <input type="number" name="kode_uniq" class="form-control" placeholder="Kode Uniq" value="<?php echo $donasi->kode_uniq ?>">
+  </div>
+</div>
+
+<div class="row form-group">
   <label class="col-md-3 text-right">Tercapai</label>
   <div class="col-md-6">
   <input type="number" name="tercapai" class="form-control" placeholder="Tercapai" value="<?php echo $donasi->tercapai ?>">

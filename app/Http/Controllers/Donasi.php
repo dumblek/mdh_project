@@ -105,6 +105,7 @@ class Donasi extends Controller
         date_default_timezone_set('Asia/Jakarta');
         $date = now()->format('Y-m-d H:i:s');
         $nominal = $request->nominal_lainnya > 0 ? str_replace('.','',$request->nominal_lainnya) : $request->nominal_donasi;
+        $nominal = $read->kode_uniq ? $nominal + $read->kode_uniq : $nominal;
         
         $model_donatur = new Donatur_model();
         $new_donatur = $model_donatur->create([
